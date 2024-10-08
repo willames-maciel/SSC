@@ -1,0 +1,142 @@
+.aside-max {
+  background-color: rgb(222, 184, 69);
+  height: 721px;
+  top: 0;
+  left: 0;
+
+
+.nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.nav-header img {
+  width: 150px;
+  padding: 10px;
+  margin-right: 0px;
+}
+
+.nav-header button {
+  border: none;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.links li {
+  padding: 10px;
+  margin-left: 5px;
+  display: flex;
+  justify-content: baseline;
+
+}
+
+.links a {
+  text-decoration: none;
+  color: rgba(51, 55, 67, 1);
+  background-color: rgba(244, 243, 240, 1);
+  padding: 10px 15px;
+  border-radius: 10px;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+}
+
+.links a:hover {
+  background-color: rgba(28, 77, 59, 1);
+  color: rgba(239, 238, 237, 1);
+  transition: 1s;
+}
+
+.links a.selected  {
+  background-color: rgba(28, 77, 59, 1);
+  color: rgba(239, 238, 237, 1);
+}
+}
+
+.aside-min{
+width: 100px;
+height: 721px;
+
+font-size: 0;
+
+.nav-header{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  gap: 10px;
+  margin-top: 10px;
+
+  img {
+    display: none;
+    width: 150px;
+    padding: 10px;
+
+  }
+  button{
+    border: none;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10px;
+
+  }
+}
+
+  .links {
+
+
+    ul {
+      background-color: rgba(244, 243, 240, 1);
+
+     li{
+      padding: 5px;
+      padding-left: 20px;
+      flex-direction: column;
+      width: 50px;
+
+        a{
+
+          margin-top: 25px;
+          margin-left: 10px;
+          margin-bottom: 10px;
+          line-height: 20px;
+          align-items: center;
+          gap: 20px;
+          padding: 1px;
+          background-color:rgba(244, 243, 240, 1);
+          height: 70%;
+          border-radius: 10px;
+          width:90%;
+
+          overflow: hidden;
+          font-size: 0;
+        }
+        a:hover{
+          background: rgba(28, 77, 59, 1);
+          color: rgba(239, 238, 237, 1);
+          transition: 1s;
+        }
+      }
+    }
+    ul li a.ativo{
+      background: rgba(28, 77, 59, 1);
+      color: rgba(239, 238, 237, 1);
+    }
+  }
+}
+
+
+
+
+

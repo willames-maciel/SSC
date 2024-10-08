@@ -1,0 +1,37 @@
+<div class="aside-max" [ngClass]="{ 'aside-min': isActive}" >
+  <div class="nav-header">
+      <img src="assets/svg/logo-preta.svg">
+      <button (click)="isTest()" type="button" class="x"><i class="fa-solid fa-bars"></i></button>
+  </div>
+
+  @if (!isActive) {
+      <ul class="links">
+        @for (item of itens; track $index) {
+          <li (click)="selectItem(item.value)">
+            <a [routerLink]="item.route" [ngClass]="{'selected': item.isSelected}" routerLinkActive="selected">
+              <samp class="icon"><i class ={{item.icon}}></i></samp>
+                <samp class="txt-link">{{item.label}}</samp>
+                  </a>
+              </li>
+        }
+        </ul>
+  }
+
+
+  @else{
+    <ul class="links">
+    @for(item of itens; track $index){
+      <li (click)="selectItem(item.value)">
+        <a [routerLink]="item.route" [ngClass]="{'selected': item.isSelected}" routerLinkActive="selected">
+          <samp class="icon"><i class ={{item.icon}}></i></samp>
+              </a>
+          </li>
+      }
+      </ul>
+  }
+
+
+
+
+
+

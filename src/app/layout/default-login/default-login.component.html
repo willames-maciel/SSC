@@ -1,0 +1,23 @@
+<main>
+  <section class="main-section">
+    <!-- <img src="assets/svg/background-main-login.svg" alt="Main Photo"> -->
+  </section>
+  <section class="form-login">
+    <img src="assets/svg/logo-main-ssc.svg" alt="" srcset="">
+    <form [formGroup]="loginForm">
+      <div class="form-group">
+        <label for="username">Usuário</label>
+        <input type="text" formControlName="username" placeholder="Usuário">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" formControlName="password" placeholder="Senha">
+      </div>
+    </form>
+    <div class="btn-wrapper">
+      <button>  Recuperar a Senha</button>
+      <button routerLink="/app" routerLinkActive="router-link-active"> <i class="fas fa-sign-in-alt"></i> Entrar </button>
+    </div>
+  </section>
+</main>

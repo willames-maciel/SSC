@@ -1,0 +1,103 @@
+footer {
+    background-color: #FCFEFF;
+    height: 100%;
+
+    img {
+        padding: 0 20px;
+    }
+
+    .divider-sapn {
+        display: flex;
+
+        span {
+            height: 10px;
+            min-width: calc(100% / 5);
+        }
+
+        span:nth-child(1) {
+            background-color: #FDCE06;
+        }
+
+        span:nth-child(2) {
+            background-color: #F59C00;
+        }
+
+        span:nth-child(3) {
+            background-color: #EB4E12;
+        }
+
+        span:nth-child(4) {
+            background-color: #44B26E;
+        }
+
+        span:nth-child(5) {
+            background-color: #26A838;
+
+        }
+    }
+
+    .info-footer {
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+
+        .logo-ceara, .text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+        .logo-ceara {
+            width: 15%;
+            height: 100%;
+
+            img {
+                width: 150px;
+            }
+        }
+
+        .text {
+
+            flex-direction: column;
+            width: 85%;
+            height: 100%;
+        }
+    }
+
+
+    @media (max-width: 480px) {
+
+        .text {
+            width: 100%;
+
+            h2 {
+                font-size: 18px;
+            }
+
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        .logo-ceara {
+            width: 100%;
+            img{
+                width: 50px;
+            }
+        }
+
+        .text {
+            width: 100%;
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+
+
+
+    }
+
+}
