@@ -1,0 +1,80 @@
+hr{
+  border-color:#aaa;
+  box-sizing:border-box;
+  width:100%;
+}
+.form{
+  border-radius: 10px;
+  margin-top: 10px;
+  height: 414px;
+  background-color: aqua;
+
+  .header-min{
+    padding: 20px;
+    height: 66px;
+    background-color: rgba(68, 178, 110, 1);
+    color: white;
+  }
+}
+.field-area-1{
+display: flex;
+}
+.field-area-2{
+  display: flex;
+  }
+
+.btn-1{
+height: 40px;
+width: 100px;
+}
+
+
+*{
+  box-sizing:border-box;
+  }
+  .box{
+    margin-top: 15px;
+    min-height:500px;
+    ::placeholder {
+      opacity: 0;
+      visibility: hidden;
+      color: transparent;
+
+}
+  }
+
+  .demo-field{
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+
+   input{
+      display: block;
+      width: 150px;
+      padding: 0.75rem 0.75rem;
+      font-size: 1rem;
+      margin: 10px;
+    }
+
+  .floating-label {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      padding: 2px 4px;
+      transition: all 0.3s ease;
+      cursor: text;
+      border-radius: 4px;
+  }
+  input:focus ~ .floating-label {
+      top: -13px;
+      left: 10px;
+      transition: all 0.2s ease-in-out;
+      background: #fff;
+  }
+  .demo-field .demo-input:not(:placeholder-shown).demo-input:not(:focus) ~ .floating-label {
+      top: -13px;
+      left: 10px;
+      background: #fff;
+      transition: all 0.2s ease-in-out;
+  }
+
