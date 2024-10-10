@@ -1,0 +1,21 @@
+<div class="sidebar">
+
+	<div class="nav-header">
+		<img src="assets/svg/logo-preta.svg">
+		<button id="collapseBtn" class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation" (click)="toggleSideBar()">
+			<i class="fa-solid fa-circle-chevron-left"></i>
+		</button>
+	</div>
+
+	<ul class="links">
+		@for (item of itens; track $index) {
+		<li [routerLink]="item.route" routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }">
+					<samp class="icon"><i class={{item.icon}}></i></samp>
+					<samp class="txt-link">{{item.label}}</samp>
+		</li>
+		}
+	</ul>
+</div>

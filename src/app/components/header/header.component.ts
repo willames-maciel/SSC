@@ -5,6 +5,10 @@ import { EventEmitterService } from '../../services/event-emitter';
 import { EventEmitter } from 'events';
 import { routes } from '../../app.routes';
 import { Inject } from '@angular/core';
+import { RotaService } from '../../services/toggle.service';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+
+import { filter, map, switchMap } from 'rxjs';
 
 
 @Component({
@@ -14,39 +18,31 @@ import { Inject } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent  implements OnInit{
-  @Input() itens: any[] = [];
-  selectedItem: any;
-  title: any;
-  x = true;
 
-
-constructor(){
-
-
-}
-
-
-ngOnInit() {
-
-
-  EventEmitterService.get("nameheader").subscribe(data => {this.title =  data.label, console.log("Titulo: ", data)});
-}
+export class HeaderComponent {
+  title: string = "";
 
 
 
+  constructor(activatedRoute: ActivatedRoute, router: Router, rotaService: RotaService) {
+    router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .pipe(map(() => activatedRoute))
+      .pipe(
+        map((route) => {
+          while (route.firstChild) route = route.firstChild;
+          return route;
+        })
+      )
+      .pipe(switchMap((route) => route.data))
 
-
-  /* constructor(private eventEmitterService: EventEmitterService) {
-    this.eventEmitterService.get('itensChange').subscribe((label: string) => {
-      this.selectedItem = { label };
-    });
+      .subscribe((event) => {
+        this.title = event['titulo'];
+      });
   }
 
-   ngOnInit(): void {
-    this.eventEmitterService.get('itensChange').subscribe((label: string) => {
-      this.selectedItem = { label };
-    });
-  }*/
+
+
+
 
 }

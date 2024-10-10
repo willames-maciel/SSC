@@ -1,0 +1,121 @@
+.sidebar {
+    height: 100%;
+    width: 250px;
+    transition: 0.5s;
+    margin-top: 20px;
+
+    .nav-header {
+        max-height: 80px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 20px;
+
+        img {
+            width: 130px;
+        }
+
+
+        button {
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+
+            i {
+                font-size: 24px;
+                color: #fff;
+            }
+
+            i:hover {
+                color: rgba(28, 77, 59, 1);
+            }
+        }
+    }
+
+    .links {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        padding: 10px;
+        list-style: none;
+
+        .active {
+            background-color: rgba(28, 77, 59, 1);
+            color: rgba(239, 238, 237, 1);
+        }
+
+        li {
+            background-color: rgba(244, 243, 240, 1);
+            border-radius: 10px;
+            width: 100%;
+            padding: 12px;
+            display: flex;
+            gap: 10px;
+            color: rgba(51, 55, 67, 1);
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(28, 77, 59, 1);
+                color: rgba(239, 238, 237, 1);
+                transition: 0.5s;
+            }
+
+        }
+
+
+    }
+
+}
+
+.showsidebar {
+    width: 100px;
+
+
+    .nav-header {
+        img {
+            display: none;
+        }
+
+        button {
+
+            i {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+
+    .links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 3px;
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon {
+            min-width: 100%;
+            text-align: center;
+
+
+            i {
+                font-size: 25px;
+
+            }
+        }
+
+        .txt-link {
+            display: none;
+        }
+    }
+
+}
+
+.hidesidebar {
+    width: 0px;
+}
