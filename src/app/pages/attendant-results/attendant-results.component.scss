@@ -3,63 +3,159 @@ hr{
   box-sizing:border-box;
   width:100%;
 }
+h1{
+  font-size: 24px;
+}
+lable{
+  font-size: 18px;
+
+}
 .form{
+  flex-direction: column;
   border-radius: 10px;
   margin-top: 10px;
-  height: 414px;
-  background-color: aqua;
+  height: 276px;
+  border: 1px  solid #000000;
+  background-color: rgba(244, 243, 240, 1);
+
+
 
   .header-min{
+    font-size: 24px;
+    border-radius: 10px 10px 0 0;
     padding: 20px;
     height: 66px;
     background-color: rgba(68, 178, 110, 1);
     color: white;
   }
 }
+
 .field-area-1{
 display: flex;
+margin-left: 10px;
 }
+.field-1{
+  input{width: 230px;}
+  font-size: 20px;
+  align-items: center;
+  flex-direction: column;
+
+}
+.field-2{
+  input{width: 200px;}
+  font-size: 20px;
+  flex-direction: column;
+
+}
+.field-3{
+  input{width: 200px;}
+  font-size: 20px;
+  flex-direction: column;
+
+}
+
+.field-checkbox{
+  width: 100%;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 5px;
+
+  .field-chek{
+    display: flex;
+    gap: 3px;
+
+    & div:nth-child(1){
+
+      display: flex;
+      width: 130px;
+      margin-left: 5px;
+      input{margin-left: -30px;}
+    }
+
+    & div:nth-child(2){
+      display: flex;
+      width: 180px;
+      input{margin-left: -35px;}
+    }
+  }
+  .text{
+    margin-top: 7px;
+    margin-left: -70px;
+  }
+ }
+
 .field-area-2{
+  margin-left: 10px;
+  height: 260px;
   display: flex;
   }
 
-.btn-1{
+
+.btn{
 height: 40px;
 width: 100px;
+margin-inline: 8px;
+margin-top: 45px;
+
+
+}
+.btn:nth-of-type(1) {
+  background-color: rgba(0, 122, 255, 1);
+  color: white;
+  margin-left: -40px;
 }
 
+.btn:nth-of-type(2) {
+  background-color: rgba(219, 54, 68, 1);
+  color: white;
+}
+.btn-1{
+  height: 40px;
+  width: 150px;
+  background-color: rgba(68, 178, 110, 1);
+  color: white;
+  margin-top: 45px;
+  margin-left: 250px;
+}
 
 *{
   box-sizing:border-box;
   }
+
   .box{
-    margin-top: 15px;
-    min-height:500px;
+    width: 230px;
+    margin-top: 35px;
+    margin-left: -75px;
+
     ::placeholder {
       opacity: 0;
       visibility: hidden;
       color: transparent;
-
-}
+    }
   }
 
   .demo-field{
       margin-bottom: 1.25rem;
       position: relative;
+      display: flex;
     }
 
    input{
-      display: block;
+      display: flex;
       width: 150px;
       padding: 0.75rem 0.75rem;
-      font-size: 1rem;
+      font-size: 15px;
       margin: 10px;
+      background-color: rgba(230, 227, 220, 1);
     }
 
   .floating-label {
       position: absolute;
       left: 10px;
-      top: 10px;
+      top: 20px;
       padding: 2px 4px;
       transition: all 0.3s ease;
       cursor: text;
@@ -69,12 +165,12 @@ width: 100px;
       top: -13px;
       left: 10px;
       transition: all 0.2s ease-in-out;
-      background: #fff;
+      background: rgba(230, 227, 220, 1);
   }
   .demo-field .demo-input:not(:placeholder-shown).demo-input:not(:focus) ~ .floating-label {
       top: -13px;
       left: 10px;
-      background: #fff;
+      background: rgba(230, 227, 220, 1);
       transition: all 0.2s ease-in-out;
   }
 
