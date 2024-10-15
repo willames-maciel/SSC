@@ -1,0 +1,231 @@
+hr{
+  border-color:#aaa;
+  box-sizing:border-box;
+  width:100%;
+}
+h1{
+  font-size: 24px;
+}
+h2{
+  font-size: 18px;
+  margin-left: 10px;
+}
+.text-1{
+  margin-left: 10px;
+
+  height: min-content;
+}
+lable{
+  font-size: 18px;
+}
+.title-text{
+  font-size: 18px;
+  margin-left: 7px;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-top: 10px;
+  height: 386px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.377);
+  background-color: rgba(244, 243, 240, 1);
+
+  .header-min{
+    font-size: 24px;
+    border-radius: 10px 10px 0 0;
+    padding: 20px;
+    height: 66px;
+    background-color: rgba(68, 178, 110, 1);
+    color: white;
+    display: flex;
+    .field-1{
+      input{width: 170px;}
+      font-size: 20px;
+      align-items: center;
+      flex-direction: column;
+      margin-left: 52%;
+      margin-top: -15px;
+      .nav-arrow{
+        margin-left: -15rem;
+        margin-right: 20rem;
+      }
+    }
+
+  }
+}
+
+.field-area-1{
+display: flex;
+margin-left: 10px;
+}
+
+.field-2{
+  input{width: 500px;}
+  font-size: 20px;
+  flex-direction: column;
+
+}
+
+
+.field-checkbox{
+  width: 100%;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 5px;
+
+  .field-chek{
+    display: flex;
+    gap: 3px;
+
+    & div:nth-child(1){
+
+      display: flex;
+      width: 130px;
+      margin-left: 5px;
+      input{margin-left: -30px;}
+    }
+
+    & div:nth-child(2){
+      display: flex;
+      width: 180px;
+      input{margin-left: -35px;}
+    }
+  }
+  .text{
+    margin-top: 7px;
+    margin-left: -70px;
+  }
+ }
+
+.field-area-2{
+  margin-left: 10px;
+  height: 260px;
+  display: flex;
+  }
+.field-area-3{
+  display: flex;
+  .field-1{
+    input{width: 157px;}
+
+  }
+  .field-2{
+    input{width: 157px;}
+    margin-top: -10px;
+  }
+
+}
+
+.btn{
+height: 40px;
+width: 100px;
+margin-inline: 8px;
+margin-top: 45px;
+
+
+
+}
+.btn:nth-of-type(1) {
+  background-color: rgba(0, 122, 255, 1);
+  color: white;
+  margin-left: -60px;
+}
+
+.btn:nth-of-type(2) {
+  background-color: rgba(219, 54, 68, 1);
+  color: white;
+}
+.btn-1{
+  height: 40px;
+  width: 150px;
+  background-color: rgba(68, 178, 110, 1);
+  color: white;
+  margin-top: 0px;
+  margin-right: 55px;
+  margin-left: 250px;
+}
+
+
+*{
+  box-sizing:border-box;
+  }
+
+  .box{
+    width: min-content;
+    height: min-content;
+    margin-top: 21.5px;
+    margin-left: -40px;
+    justify-content: center;
+
+
+    ::placeholder {
+      opacity: 0;
+      visibility: hidden;
+      color: transparent;
+    }
+  }
+
+  .demo-field{
+      margin-bottom:  10px;
+      position: relative;
+      display: flex;
+      margin-left: 40px;
+      margin-right: 5px;
+
+
+
+    }
+
+
+   input{
+      display: flex;
+      width: 150px;
+      padding: 0.75rem 0.75rem;
+      font-size: 15px;
+      margin: 10px;
+      background-color: rgba(230, 227, 220, 1);
+      border: 1px solid #000000;
+    }
+
+  .floating-label {
+      position: absolute;
+      left: 10px;
+      top: 20px;
+      padding: 2px 4px;
+      transition: all 0.3s ease;
+      cursor: text;
+      border-radius: 4px;
+  }
+  input:focus ~ .floating-label {
+      top: -13px;
+      left: 10px;
+      transition: all 0.2s ease-in-out;
+      background: rgba(230, 227, 220, 1);
+  }
+  .demo-field .demo-input:not(:placeholder-shown).demo-input:not(:focus) ~ .floating-label {
+      top: -13px;
+      left: 10px;
+      background: rgba(230, 227, 220, 1);
+      transition: all 0.2s ease-in-out;
+  }
+  .submit-lente {
+    position:absolute;
+    top: 168px; right: -65px;
+    z-index:10;
+    border:none;
+    background:transparent;
+    outline:none;
+  }
+
+  .submit-line {
+    position: relative;
+    width: 200px;
+  }
+
+  .submit-line input {
+    width: 100%;
+  }
+
