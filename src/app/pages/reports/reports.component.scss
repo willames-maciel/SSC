@@ -23,6 +23,7 @@ lable{
   margin-left: 7px;
 }
 .form{
+
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -44,7 +45,7 @@ lable{
       font-size: 20px;
       align-items: center;
       flex-direction: column;
-      margin-left: 52%;
+      margin-left: 54%;
       margin-top: -15px;
       .nav-arrow{
         margin-left: -15rem;
@@ -69,13 +70,17 @@ margin-left: 10px;
 
 
 .field-checkbox{
-  width: 100%;
+  width: min-content;
   margin-top: 5px;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: start;
   gap: 5px;
+
+  h2{
+    margin-top: -4px;
+  }
 
   .field-chek{
     display: flex;
@@ -90,6 +95,7 @@ margin-left: 10px;
     }
 
     & div:nth-child(2){
+
       display: flex;
       width: 180px;
       input{margin-left: -35px;}
@@ -107,14 +113,19 @@ margin-left: 10px;
   display: flex;
   }
 .field-area-3{
+  width: min-content;
+  height: 100%;
+
   display: flex;
   .field-1{
+    margin-left: 8px;
     input{width: 157px;}
 
   }
   .field-2{
     input{width: 157px;}
-    margin-top: -10px;
+    margin-top: 20px;
+    margin-left: -5px;
   }
 
 }
@@ -140,12 +151,11 @@ margin-top: 45px;
 }
 .btn-1{
   height: 40px;
-  width: 150px;
+  width: 180px;
   background-color: rgba(68, 178, 110, 1);
   color: white;
-  margin-top: 0px;
-  margin-right: 55px;
-  margin-left: 250px;
+  margin-top: 25px;
+  margin-right: 20px;
 }
 
 
