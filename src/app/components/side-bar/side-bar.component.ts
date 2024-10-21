@@ -39,11 +39,8 @@ export class SidebarComponent {
     ];
 
 
-
-    selectedItem: Item | null | undefined;
-
     @Output() itensChange = new EventEmitter<any>();
-
+    selectedItem: Item | null | undefined;
     public selectItem(itemValue: string) {
         console.log('Função selectItem chamada!', itemValue);
         this.itens.forEach((item) => {

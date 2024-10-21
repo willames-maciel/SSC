@@ -1,2 +1,21 @@
-<h1>Meta Geral</h1>
+<div class="line-1">
+  <h1>#CONFIGURAÇÕES/ASSUNTOS/SUBASSUNTOS</h1>
+  <hr>
+</div>
+
+<div class="form">
+  <div class="min-header">
+  <button class="btn">Novo Assunto</button>
+  <h1>NOVO ASSUNTO/SUBASSUNTO</h1>
+  <hr>
+  </div>
+
+
+  <ul class="links">
+    <li *ngFor="let item of itens" (click)="selectItem(item.label)">
+      <samp class="txt-link">{{item.label}}</samp>
+      <samp class="icon"><i [class]="item.icon"></i></samp>
+    </li>
+  </ul>
+</div>
 

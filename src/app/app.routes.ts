@@ -30,9 +30,9 @@ export const routes: Routes = [
       { path: 'occurrences', component: OccurrencesComponent, data: { titulo: 'Ocorrencias' } },
       { path: 'delays', component: DelaysComponent, data: { titulo: 'Atrasos' } },
       { path: 'bank-hours', component: BankHoursComponent, data: { titulo: 'Banco de Horas' } },
-      { path: 'general-goal', component: GeneralGoalComponent, data: { titulo: 'Meta Geral' } },
+      { path: 'general-goal', component: GeneralGoalComponent, data: { titulo: 'Configuração' } },
       { path: 'matters', component: MattersComponent, data: { titulo: 'Assuntos' } },
-      { path: 'sub-matters', component: SubMattersComponent, data: { titulo: 'Sub Assuntos' } },
+      { path: 'sub-matters', component: SubMattersComponent, data: { titulo: 'Subassuntos' } },
       { path: 'reports', component: ReportsComponent, data: { titulo: 'Relatórios e Estatisticas' } },
       { path: 'users', component: UsersComponent, data: { titulo: 'Usuarios' } },
 

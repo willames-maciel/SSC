@@ -33,9 +33,9 @@ export class NavComponent {
     { route: '/app/bank-hours', icon: 'fa-solid fa-hourglass-half', label: 'Banco de Horas' },
     { route: '/app/delays', icon: 'fa-regular fa-clock', label: 'Atraso' },
     { route: '/app/reports', icon: 'fa-solid fa-chart-simple', label: 'Relatório e Estatística' },
-    { route: '/app/general-goal', icon: 'fa-solid fa-gear', label: 'Meta Geral' },
+    { route: '/app/general-goal', icon: 'fa-solid fa-gear', label: 'Configuração' },
     { route: '/app/matters', icon: 'fa-solid fa-gear', label: 'Assuntos' },
-    { route: '/app/sub-matters', icon: 'fa-solid fa-gear', label: 'Sub Assuntos' },
+    { route: '/app/sub-matters', icon: 'fa-solid fa-gear', label: 'Subassuntos' },
     { route: '/app/users', icon: 'fa-solid fa-gear', label: 'Usuários' }
   ];
 
