@@ -8,7 +8,7 @@ hr{
   width:100%;
 }
 .form{
-  height: 900px;
+  height: 1500px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.377);
   border-radius: 10px;
   margin-top: 10px;
@@ -26,6 +26,9 @@ hr{
     position: relative;
     margin-top: 10px;
     background-color: #aaa;
+    width: 1000px;
+    height: 55px;
+    margin-left: 10px;
   }
   .txt-link{
     border-radius: 4px;
@@ -37,8 +40,8 @@ hr{
   .icon {
     background-color: rgb(241, 217, 144);
     position: absolute;
-    top:15px;
-    margin-left: 930px;
+    top:20px;
+    margin-left: 920px;
     display: flex;
     justify-content: center;
     width: 30px;

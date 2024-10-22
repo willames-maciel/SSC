@@ -41,9 +41,6 @@ export class GeneralGoalComponent {
     {icon: "fa-solid fa-chevron-down", label: 'Plantão'},
 
 
-
-
-
   ];
 
 selectedItem: Item | null =  null;

@@ -1,16 +1,40 @@
 {
-  "colaboradores": [
+  "meses": [
+    {"id":1, "nome":"Janeiro"},
+    {"id":2, "nome":"Fevereiro"},
+    {"id":3, "nome":"Março"},
+    {"id":4, "nome":"Abril"},
+    {"id":5, "nome":"Maio"},
+    {"id":6, "nome":"Junho"},
+    {"id":7, "nome":"Julho"},
+    {"id":8, "nome":"Agosto"},
+    {"id":9, "nome":"Setembro"},
+    {"id":10, "nome":"Outubro"},
+    {"id":11, "nome":"Novembro"},
+    {"id":12, "nome":"Dezembro"}
+  ],
+
+  "ocorrencias":[
     {
-      "id": "2"
+      "label": "Telefonia",
+      "data": [65, 59, 80, 81, 56, 55, 40, 50, 32, 56, 51, 56],
+      "fill": false,
+      "borderColor": "rgb(75, 192, 192)",
+      "tension": 0.1
     },
     {
-      "id": "3"
+      "label": "Retornos",
+      "fill": false,
+      "data": [10, 54, 42, 62, 13, 85, 45, 65, 35, 9, 45, 67],
+      "tension": 0.1,
+      "borderColor": "rgb(45, 292, 92)"
     },
     {
-      "id": "4",
-      "nome": "Ponpai",
-      "idade": 47,
-      "cargo": "suporte"
+      "label": "Tercerização",
+      "fill": false,
+      "data": [20, 34, 92, 42, 20, 15, 75, 15, 35, 19, 5, 17],
+      "borderColor": "rgb(95, 22, 62)",
+      "tension": 0
     }
   ]
 }
