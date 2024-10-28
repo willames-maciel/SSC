@@ -5,17 +5,40 @@
 
 <div class="form">
   <div class="min-header">
-  <button class="btn">Novo Assunto</button>
-  <h1>NOVO ASSUNTO/SUBASSUNTO</h1>
-  <hr>
+    <button class="btn">Novo Assunto</button>
+    <h1>NOVO ASSUNTO/SUBASSUNTO</h1>
+    <hr>
   </div>
 
-
   <ul class="links">
-    <li *ngFor="let item of itens" (click)="selectItem(item.label)">
+    <li *ngFor="let item of itens">
+
       <samp class="txt-link">{{item.label}}</samp>
-      <samp class="icon"><i [class]="item.icon"></i></samp>
+
+      <button (click)="toggleTabVisibility(item)" class="btn-ativo">
+        <samp><i [class]="item.icon"></i></samp>
+      </button>
+
+      <div class="tabs" *ngIf="item.isTabVisible">
+        <samp class="txt-link">{{item.label}}</samp>
+        <table class="table">
+          <tr>
+            <td>dd</td>
+            <td>dd</td>
+            <td>dd</td>
+          </tr>
+          <tr>
+            <td>dd</td>
+            <td>dd</td>
+            <td>dd</td>
+          </tr>
+          <tr>
+            <td>dd</td>
+            <td>dd</td>
+            <td>dd</td>
+          </tr>
+        </table>
+      </div>
     </li>
   </ul>
 </div>
-

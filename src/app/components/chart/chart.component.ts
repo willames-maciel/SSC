@@ -11,6 +11,14 @@ Chart.register(...registerables);
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss'],
 })
+
+
+
+
+
+
+
+
 export class ChartComponent implements OnInit {
   @ViewChild("meuCanvas", { static: true })
   elemento!: ElementRef;
