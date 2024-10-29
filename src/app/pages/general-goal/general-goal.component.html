@@ -10,35 +10,48 @@
     <hr>
   </div>
 
-  <ul class="links">
-    <li *ngFor="let item of itens">
+  <div class="general-goal-container">
 
-      <samp class="txt-link">{{item.label}}</samp>
-
-      <button (click)="toggleTabVisibility(item)" class="btn-ativo">
-        <samp><i [class]="item.icon"></i></samp>
-      </button>
-
-      <div class="tabs" *ngIf="item.isTabVisible">
-        <samp class="txt-link">{{item.label}}</samp>
-        <table class="table">
-          <tr>
-            <td>dd</td>
-            <td>dd</td>
-            <td>dd</td>
-          </tr>
-          <tr>
-            <td>dd</td>
-            <td>dd</td>
-            <td>dd</td>
-          </tr>
-          <tr>
-            <td>dd</td>
-            <td>dd</td>
-            <td>dd</td>
-          </tr>
-        </table>
+    <div *ngFor="let item of itens" class="item">
+      <div class="item-header" (click)="toggleDropdown(item)">
+        <span>{{ item.label }}</span>
+        <i class="fa-solid fa-chevron-down" [class.active]="item.isDropdownVisible"></i>
       </div>
-    </li>
-  </ul>
+
+      <div *ngIf="item.isDropdownVisible" class="dropdown">
+
+        <table border="1">
+          <thead>
+            <tr>
+              <th>SUBASSUNTO</th>
+              <th>SITUAÇÃO</th>
+              <th>EDITAR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let assunto of bdData.assuntos">
+              <td [attr.rowspan]="assunto.subassuntos.length">{{ assunto.label }}</td>
+               <td>{{ assunto.subassuntos[0].titulo }}</td>
+              <td>{{ assunto.subassuntos[0].situacao }}</td>
+              <td><i class="fa-solid fa-pen-to-square"></i></td>
+            </tr>
+            <tr *ngFor="let subassunto of assunto.subassuntos.slice(1)">
+              <td>{{ subassunto.titulo }}</td>
+              <td>{{ subassunto.situacao }}</td>
+              <td><i class="fa-solid fa-pen-to-square"></i></td>
+            </tr>
+            <tr>
+              <td>Linha 3, Coluna 1</td>
+              <td>Linha 3, Coluna 2</td>
+              <td><i class="fa-solid fa-pen-to-square"></i></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div *ngFor="let tab of item.tabs" class="dropdown-item" (click)="selectOption(tab.title)">
+          {{ tab.title }}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

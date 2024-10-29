@@ -8,7 +8,7 @@ hr{
   width:100%;
 }
 .form{
-  height: 1500px;
+  height: min-content;
   box-shadow: 3px 4px 10px 2px rgba(0, 0, 0, 0.404);
   border-radius: 10px;
   margin-top: 10px;
@@ -26,7 +26,7 @@ hr{
     margin-bottom: 10px;
     position: relative;
     margin-top: 10px;
-    background-color: #aaa;
+    background-color: rgba(230, 227, 220, 1);
     width: 970px;
     height: 55px;
     margin-left: 10px;
@@ -36,7 +36,8 @@ hr{
     border-radius: 4px;
     padding: 5px;
     margin-left: 5px;
-    background-color: rgb(126, 114, 81);
+    font-size: 20px;
+    //background-color: rgb(126, 114, 81);
 
   }
   .btn-ativo{
@@ -77,23 +78,50 @@ hr{
 .links{
   position: relative;
 }
-
-.tabs {
-  height: 50px;
-  padding: 5px;
-  background-color: #df1f1f;
-  border-radius: 10px;
-  width: 600px;
+table{
+  align-items: center;
   margin-top: 20px;
-  margin-left: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-left: 50px;
+  width: 900px;
+  height: 200px;
 }
-.table{
-  background-color: aquamarine;
-  border: 2px solid rgb(0, 0, 0);
-}
-table tr td{
-  border: 2px solid rgb(0, 0, 0);
+.general-goal-container {
 
+  .item {
+    margin-bottom: 10px;
+
+    .item-header {
+      height: 50px;
+      font-size: 20px;
+      display: flex;
+      margin-top: 5px;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 10px;
+      background-color: rgba(230, 227, 220, 1);
+      border: 1px solid #ccc;
+      border-radius: 5px;
+
+      i {
+        margin-right: 8px;
+        gap: 2px;
+
+      }
+    }
+
+    .dropdown {
+      height: 250px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: rgba(230, 227, 220, 1);
+
+      .dropdown-item {
+        padding: 8px 10px;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
