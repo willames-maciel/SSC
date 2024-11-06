@@ -14,61 +14,105 @@
     {"id": 12,"nome": "Dezembro"}
   ],
 
-  "ocorrencias": [
-    {
-      "label": "Telefonia",
-      "data": [65, 59, 80, 81, 56, 55, 40, 50, 32, 56, 51, 56],
-      "fill": false,
-      "borderColor": "rgb(75, 192, 192)",
-      "tension": 0.1,
-      "subassuntos": [
-        {
-          "titulo": "BASE",
-          "situacao": "ATIVO"
-        },
-        {
-          "titulo": "CALLBACK",
-          "situacao": "ATIVO"
-        },
-        {
-          "titulo": "CONGESTIONAMENTO",
-          "situacao": "INATIVO"
-        }
-      ]
-    },
-    {
-      "label": "Retornos",
-      "fill": false,
-      "data": [10, 54, 42, 62, 13, 85, 45, 65, 35, 9, 45, 67],
-      "tension": 0.1,
-      "borderColor": "rgb(45, 292, 92)",
-      "subassuntos": [
-        {
-          "titulo": "Subassunto Retornos 1",
-          "situacao": "Ativo"
-        },
-        {
-          "titulo": "Subassunto Retornos 2",
-          "situacao": "Em andamento"
-        }
-      ]
-    },
-    {
-      "label": "Tercerização",
-      "fill": false,
-      "data": [20, 34, 92, 42, 20, 15, 75, 15, 35, 19, 5, 17],
-      "borderColor": "rgb(95, 22, 62)",
-      "tension": 0.1,
-      "subassuntos": [
-        {
-          "titulo": "Subassunto Tercerização 1",
-          "situacao": "Concluído"
-        },
-        {
-          "titulo": "Subassunto Tercerização 2",
-          "situacao": "Pendente"
-        }
-      ]
-    }
+  "assunto":[
+    {"id":"1", "name": "Telefonia","situacao": "ATIVO"},
+    {"id":"2", "name": "Retornos","situacao": "ATIVO"},
+    {"id":"3", "name": "Terceirização","situacao": "ATIVO"},
+    {"id":"4", "name": "Estrutura e Funcinmento da Central","situacao": "ATIVO"},
+    {"id":"5", "name": "Sistemas","situacao": "ATIVO"},
+    {"id":"6", "name": "Atemdimento","situacao": "ATIVO"},
+    {"id":"7", "name": "Problemas Técnicos","situacao": "ATIVO"}
+
+
+
+  ],
+
+  "subassuntos":[
+    {"id":"1", "name": "BASE","situacao": "ATIVO", "idassunto":"1"},
+    {"id":"2", "name": "CALLBACK","situacao": "ATIVO","idassunto":"1"},
+    {"id":"3", "name": "CONGESTIONAMENTO","situacao": "ATIVO","idassunto":"1"},
+    {"id":"4", "name": "HEADSET","situacao": "ATIVO","idassunto":"1"},
+    {"id":"5", "name": "INFORMES","situacao": "ATIVO","idassunto":"1"},
+    {"id":"6", "name": "INOPERÂNCIA NO ATENDIMENTO","situacao": "ATIVO","idassunto":"1"},
+    {"id":"7", "name": "LINHAS CRUZADAS","situacao": "ATIVO","idassunto":"1"},
+    {"id":"8", "name": "QUEDA NAS LIGAÇÕES PONTUAL","situacao": "ATIVO","idassunto":"1"},
+    {"id":"9", "name": "LIGAÇÃO MUDA","situacao": "INATIVO","idassunto":"1"},
+    {"id":"10", "name": "QUEDA NAS LIGAÇÕES SIMULTÂNEA","situacao": "ATIVO","idassunto":"1"},
+    {"id":"11", "name": "TENTATIVA DE RETORNO PARA FIXO","situacao": "ATIVO","idassunto":"1"},
+    {"id":"12", "name": "TENTATIVA DE RETORNO PARA MÓVEL","situacao": "ATIVO","idassunto":"1"},
+    {"id":"13", "name": "TROTE","situacao": "ATIVO","idassunto":"1"},
+    {"id":"14", "name": "QUEDAS NAS LIGAÇÕES","situacao": "INATIVO","idassunto":"1"},
+    {"id":"15", "name": "TELEFONIA MÓVEL INOPERANTE","situacao": "INATIVO","idassunto":"1"},
+    {"id":"16", "name": "TELEFONIA OSCILANDOS","situacao": "INATIVO","idassunto":"1"},
+    {"id":"17", "name": "TELEFONIA VOIPS","situacao": "INATIVO","idassunto":"1"},
+    {"id":"18", "name": "INFORMES","situacao": "ATIVO","idassunto":"2"},
+    {"id":"19", "name": "PROTOCOLO ENCAMINHADO PARA ÓRGÃO INDEVIDO","situacao": "ATIVO","idassunto":"2"},
+    {"id":"20", "name": "RETORNOS PELO TELEFONE","situacao": "ATIVO","idassunto":"2"},
+    {"id":"21", "name": "RETORNOS PELO WHATSAPP","situacao": "ATIVO","idassunto":"2"},
+    {"id":"22", "name": "RETORNOS PELO WHATSAPP","situacao": "ATIVO","idassunto":"2"},
+    {"id":"23", "name": "ATESTADOS","situacao": "ATIVO","idassunto":"3"},
+    {"id":"24", "name": "ATESTADOS","situacao": "ATIVO","idassunto":"3"},
+    {"id":"25", "name": "ATRASOS","situacao": "ATIVO","idassunto":"3"},
+    {"id":"26", "name": "ATRASOS (JUSTIFICATIVAS)","situacao": "ATIVO","idassunto":"3"},
+    {"id":"27", "name": "BANCO DE HORAS","situacao": "ATIVO","idassunto":"3"},
+    {"id":"28", "name": "COMPENSAR HORAS","situacao": "ATIVO","idassunto":"3"},
+    {"id":"29", "name": "ENTRADA","situacao": "ATIVO","idassunto":"3"},
+    {"id":"30", "name": "EXTERNA","situacao": "ATIVO","idassunto":"3"},
+    {"id":"31", "name": "FALTA","situacao": "ATIVO","idassunto":"3"},
+    {"id":"32", "name": "FOLGA","situacao": "ATIVO","idassunto":"3"},
+    {"id":"33", "name": "FOLGA ELEITORAL","situacao": "ATIVO","idassunto":"3"},
+    {"id":"34", "name": "FÉRIAS","situacao": "ATIVO","idassunto":"3"},
+    {"id":"35", "name": "INFORMES","situacao": "ATIVO","idassunto":"3"},
+    {"id":"36", "name": "LICENÇA","situacao": "ATIVO","idassunto":"3"},
+    {"id":"37", "name": "PAUSA","situacao": "ATIVO","idassunto":"3"},
+    {"id":"38", "name": "PAUSA FONOAUDIOLOGIA","situacao": "ATIVO","idassunto":"3"},
+    {"id":"39", "name": "PAUSA GINASTICA LABORAL","situacao": "ATIVO","idassunto":"3"},
+    {"id":"40", "name": "PAUSAS EXTRAS LONGAS/EXCESSO","situacao": "ATIVO","idassunto":"3"},
+    {"id":"41", "name": "PONTO","situacao": "ATIVO","idassunto":"3"},
+    {"id":"42", "name": "PONTO ANTONIO DE PÁDOA","situacao": "ATIVO","idassunto":"3"},
+    {"id":"43", "name": "SAIDA ANTECIPADA","situacao": "ATIVO","idassunto":"3"},
+    {"id":"44", "name": "ESTRUTURA","situacao": "ATIVO","idassunto":"3"},
+    {"id":"45", "name": "INFORMES","situacao": "ATIVO","idassunto":"4"},
+    {"id":"46", "name": "PLANTÃO","situacao": "ATIVO","idassunto":"4"},
+    {"id":"47", "name": "REUNIÃO","situacao": "ATIVO","idassunto":"4"},
+    {"id":"48", "name": "TROCA DE PAS","situacao": "ATIVO","idassunto":"4"},
+    {"id":"49", "name": "REUNIÃO COM SUPERVISÃO","situacao": "INATIVO","idassunto":"4"},
+    {"id":"50", "name": "REUNIÃO GERAL","situacao": "INATIVO","idassunto":"4"},
+    {"id":"51", "name": "REUNIÃO SQAO","situacao": "INATIVO","idassunto":"4"},
+    {"id":"52", "name": "REUNIÕES","situacao": "INATIVO","idassunto":"4"},
+    {"id":"53", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
+    {"id":"54", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
+    {"id":"55", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
+    {"id":"56", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
+    {"id":"57", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
+    {"id":"58", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
+    {"id":"59", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
+    {"id":"60", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
+    {"id":"61", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
+    {"id":"62", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
+    {"id":"63", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
+    {"id":"64", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
+    {"id":"65", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
+    {"id":"66", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
+    {"id":"67", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
+    {"id":"68", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
+    {"id":"69", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   ]
+
 }

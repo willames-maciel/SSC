@@ -11,16 +11,19 @@
   </div>
 
   <div class="general-goal-container">
+    @for (item of listAssunto; track $index) {
+    <div class="item">
 
-    <div *ngFor="let item of itens" class="item">
-      <div class="item-header" (click)="toggleDropdown(item)">
-        <span>{{ item.label }}</span>
-        <i class="fa-solid fa-chevron-down" [class.active]="item.isDropdownVisible"></i>
+      <div class="item-header"  (click)="toggleDropdown(item, $event)">
+        <span>{{ item.name }}</span>
+
+        <i class="fa-solid fa-chevron-down" [class.active]="isDropdownVisible"></i>
       </div>
 
-      <div *ngIf="item.isDropdownVisible" class="dropdown">
+      <!-- @if (isDropdownVisible) { -->
+      <div class="dropdown" id="test_{{item.id}}">
 
-        <table border="1">
+        <table>
           <thead>
             <tr>
               <th>SUBASSUNTO</th>
@@ -29,29 +32,21 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let assunto of bdData.assuntos">
-              <td [attr.rowspan]="assunto.subassuntos.length">{{ assunto.label }}</td>
-               <td>{{ assunto.subassuntos[0].titulo }}</td>
-              <td>{{ assunto.subassuntos[0].situacao }}</td>
-              <td><i class="fa-solid fa-pen-to-square"></i></td>
-            </tr>
-            <tr *ngFor="let subassunto of assunto.subassuntos.slice(1)">
-              <td>{{ subassunto.titulo }}</td>
-              <td>{{ subassunto.situacao }}</td>
-              <td><i class="fa-solid fa-pen-to-square"></i></td>
-            </tr>
+
+            @for (itemsubassunto of listSubAssunto; track $index) {
+
             <tr>
-              <td>Linha 3, Coluna 1</td>
-              <td>Linha 3, Coluna 2</td>
+              <td>{{itemsubassunto.name}}</td>
+              <td>{{itemsubassunto.situacao}}</td>
               <td><i class="fa-solid fa-pen-to-square"></i></td>
             </tr>
+
+          }
           </tbody>
         </table>
-
-        <div *ngFor="let tab of item.tabs" class="dropdown-item" (click)="selectOption(tab.title)">
-          {{ tab.title }}
-        </div>
       </div>
+    <!-- } -->
     </div>
+  }
   </div>
 </div>

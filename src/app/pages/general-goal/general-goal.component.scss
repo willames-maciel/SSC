@@ -73,18 +73,41 @@ hr{
     margin-top: 5px;
     margin-block-end: -30px;
   }
+  .btn:hover{
+    background-color: rgba(22, 97, 51, 0.76);
+  }
+
 }
 
 .links{
   position: relative;
 }
+
 table{
+  border-collapse:collapse;
   align-items: center;
   margin-top: 20px;
   margin-left: 50px;
   width: 900px;
-  height: 200px;
+  height:  min-content;
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+
+
+  th {
+    background-color: #f9f9f9;
+  }
+
+  tr{
+    background-color: #f9f9f9;
+  }
 }
+
+
+
 .general-goal-container {
 
   .item {
@@ -105,17 +128,23 @@ table{
 
       i {
         margin-right: 8px;
-        gap: 2px;
+        align-content: space-around;
+        align-items: center;
+        margin-left: 15px;
 
       }
     }
 
     .dropdown {
-      height: 250px;
+      height: auto;
+      max-height: 400px;
+      overflow-y: auto;
       margin-top: 5px;
       border: 1px solid #ccc;
       border-radius: 5px;
       background-color: rgba(230, 227, 220, 1);
+
+
 
       .dropdown-item {
         padding: 8px 10px;

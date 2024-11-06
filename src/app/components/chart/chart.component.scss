@@ -1,1 +1,8 @@
+:root {
+  --full-contrast: #000;
+}
 
+canvas {
+  background-color: color-mix(in srgb, oklch(63.32% .24 31.68), var(--full-contrast) 60%);
+  border: 1px solid #ccc;
+}
