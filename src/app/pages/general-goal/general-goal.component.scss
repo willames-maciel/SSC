@@ -76,6 +76,12 @@ hr{
   .btn:hover{
     background-color: rgba(22, 97, 51, 0.76);
   }
+  .btn-edit{
+    text-align: center;
+    button{
+      border: none;
+    }
+  }
 
 }
 

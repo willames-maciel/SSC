@@ -1,22 +1,20 @@
 import { AssuntoService } from './../../services/assunto.service';
 import { CommonModule } from '@angular/common';
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-interface Item {
-  icon: string;
-  label: string;
-  isDropdownVisible: boolean;
-}
-export interface Assunto{
+export interface Assunto {
   id: string;
-  name:string;
+  name: string;
   situacao: string;
+  isDropdownVisible: boolean;
+  icon: string;
 }
-export interface SubAssuntos{
-  id:string;
-  name:string;
+
+export interface SubAssuntos {
+  id: string;
+  name: string;
   situacao: string;
-  idassunto:string;
+  idassunto: string;
 }
 
 @Component({
@@ -24,78 +22,73 @@ export interface SubAssuntos{
   standalone: true,
   imports: [CommonModule],
   templateUrl: './general-goal.component.html',
-  styleUrl: './general-goal.component.scss'
+  styleUrls: ['./general-goal.component.scss']
 })
 export class GeneralGoalComponent {
+  listAssunto: Assunto[] = [];
+  listSubAssunto: SubAssuntos[] = [];
+  selectedSubAssunto: SubAssuntos | null = null;
+  subAssunto: any;
 
+  constructor(private assuntoService: AssuntoService) {}
 
-
-  itens: Item[] = [
-    {icon: "fa-solid fa-chevron-down", label: 'Telefonia', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Retornos', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Tercerização', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Estrutura e Funcionamento da Central', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Ferias', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Sistemas', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Atendimento', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Problemas técnico', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Login', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Capacitação', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Equipamento', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Orientações de chamdo', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Evento 155', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Acesso remoto', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Relatório individual', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'T.I', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Telefones bloqueados', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Whatsapp', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Visita ao prédio', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Relacionamento interpessoal', isDropdownVisible: false,},
-    {icon: "fa-solid fa-chevron-down", label: 'Plantão', isDropdownVisible: false,},
-  ];
-
-isDropdownVisible : boolean = false;
-selectedItem: Item | null =  null;
-listAssunto:Assunto[]= [] ;
-listSubAssunto: SubAssuntos[] = [];
-
-
-constructor(private assuntoService: AssuntoService) {}
-
-ngOnInit(): void{
-  this.callAssunto();
-  this.callSubAssunto();
-}
-
-  public toggleDropdown(item: Assunto, e:any) {
-    this.isDropdownVisible = !this.isDropdownVisible;
-    let element = document.getElementById('test_'+item.id) as HTMLLIElement;
-    if(this.isDropdownVisible= false){
-    element.style.display='block';
-    console.log("Cat: ", element);
-  }}
-
-callAssunto(){
-  this.assuntoService.getAssunto().subscribe(data => {
-    this.listAssunto = data;
-    console.log("assuntos",this.listAssunto,data[1].name);
-  });
+  ngOnInit(): void {
+    this.callAssunto();
+    this.callSubAssunto();
   }
 
-  callSubAssunto(){
-    this.assuntoService.getSubAssunto().subscribe(data1=> {
-      this.listSubAssunto = data1;
-      console.log("subassuntos",this.listSubAssunto, data1[12].name);
-
+  callAssunto() {
+    this.assuntoService.getAssunto().subscribe(data => {
+      this.listAssunto = data.map(assunto => ({
+        ...assunto,
+        isDropdownVisible: false
+      }));
+      console.log("assuntos", this.listAssunto);
     });
   }
-  //   check(){
-  //     for(i in length(data))
-  //   if (data[i].id === data1[i].idassuntos) {
-  //     console.log('Certo');
-  //   }
-  //   else{
-  //     console.log('Errado');
-  //   }
-  // }
+
+  callSubAssunto() {
+    this.assuntoService.getSubAssunto().subscribe(data1 => {
+      console.log("Hello world");
+    });
   }
+
+  public toggleDropdown(item: Assunto) {
+
+    this.listAssunto.forEach(assunto => {
+      if (assunto !== item) {
+        assunto.isDropdownVisible = false;
+      }
+    });
+
+
+    item.isDropdownVisible = !item.isDropdownVisible;
+
+
+    if (item.isDropdownVisible) {
+
+      this.assuntoService.getByIdSubAssunto(item.id).subscribe({
+        next: (data: SubAssuntos[]) => {
+          console.log("Data", data);
+          this.listSubAssunto = data;
+        },
+
+        error: (error: any) => {
+          console.error("Erro: ", error);
+        }
+      });
+    }
+  }
+  onEditClick(subAssunto: SubAssuntos){
+    this.selectedSubAssunto = {...subAssunto};
+    alert('clicado')
+
+  }
+  onSubmit(){
+    console.log("Dados Editado: ", this.selectedSubAssunto);
+    this.selectedSubAssunto = null;
+  }
+  cancelEdit(){
+    this.selectedSubAssunto = null;
+  }
+}

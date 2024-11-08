@@ -14,6 +14,33 @@
     {"id": 12,"nome": "Dezembro"}
   ],
 
+"ocorrencias":[
+  {
+    "label": "Telefonia",
+    "data": [10, 20, 30,8,2,23],
+    "backgroundColor": "rgba(255, 99, 132, 0.2)",
+    "borderColor": "rgba(255, 99, 132, 1)",
+    "borderWidth": 1
+  },
+  {
+    "label": "Retornos",
+    "data": [15, 25, 35,20,65,70],
+    "backgroundColor": "rgba(54, 162, 235, 0.2)",
+    "borderColor": "rgba(54, 162, 235, 1)",
+    "borderWidth": 1
+  },
+  {
+    "label": "Tercerização",
+    "data": [15, 45, 35,10,29,66],
+    "backgroundColor": "rgba(54, 162, 235, 0.2)",
+    "borderColor": "rgba(94, 12, 235, 1)",
+    "borderWidth": 1
+  }
+  ],
+
+
+
+
   "assunto":[
     {"id":"1", "name": "Telefonia","situacao": "ATIVO"},
     {"id":"2", "name": "Retornos","situacao": "ATIVO"},
@@ -21,10 +48,8 @@
     {"id":"4", "name": "Estrutura e Funcinmento da Central","situacao": "ATIVO"},
     {"id":"5", "name": "Sistemas","situacao": "ATIVO"},
     {"id":"6", "name": "Atemdimento","situacao": "ATIVO"},
-    {"id":"7", "name": "Problemas Técnicos","situacao": "ATIVO"}
-
-
-
+    {"id":"7", "name": "Problemas Técnicos","situacao": "ATIVO"},
+    {"id":"8", "name": "Problemas Técnicos","situacao": "ATIVO"}
   ],
 
   "subassuntos":[
@@ -49,7 +74,7 @@
     {"id":"19", "name": "PROTOCOLO ENCAMINHADO PARA ÓRGÃO INDEVIDO","situacao": "ATIVO","idassunto":"2"},
     {"id":"20", "name": "RETORNOS PELO TELEFONE","situacao": "ATIVO","idassunto":"2"},
     {"id":"21", "name": "RETORNOS PELO WHATSAPP","situacao": "ATIVO","idassunto":"2"},
-    {"id":"22", "name": "RETORNOS PELO WHATSAPP","situacao": "ATIVO","idassunto":"2"},
+    {"id":"22", "name": "RETORNOS PELO EMAIL","situacao": "ATIVO","idassunto":"2"},
     {"id":"23", "name": "ATESTADOS","situacao": "ATIVO","idassunto":"3"},
     {"id":"24", "name": "ATESTADOS","situacao": "ATIVO","idassunto":"3"},
     {"id":"25", "name": "ATRASOS","situacao": "ATIVO","idassunto":"3"},
@@ -80,39 +105,24 @@
     {"id":"50", "name": "REUNIÃO GERAL","situacao": "INATIVO","idassunto":"4"},
     {"id":"51", "name": "REUNIÃO SQAO","situacao": "INATIVO","idassunto":"4"},
     {"id":"52", "name": "REUNIÕES","situacao": "INATIVO","idassunto":"4"},
-    {"id":"53", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
-    {"id":"54", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
-    {"id":"55", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
-    {"id":"56", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
-    {"id":"57", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
-    {"id":"58", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
-    {"id":"59", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
-    {"id":"60", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
-    {"id":"61", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
-    {"id":"62", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
-    {"id":"63", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
-    {"id":"64", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
-    {"id":"65", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
-    {"id":"66", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
-    {"id":"67", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
-    {"id":"68", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"},
-    {"id":"69", "name": "TROCA DE TURNO","situacao": "ATIVO","idassunto":"5"}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    {"id":"53", "name": "CEARÁ TRANSPARENTE","situacao": "ATIVO","idassunto":"5"},
+    {"id":"54", "name": "CORREIO (ZIMBRA)","situacao": "ATIVO","idassunto":"5"},
+    {"id":"55", "name": "EASY CALL VISOR / RECORD","situacao": "ATIVO","idassunto":"5"},
+    {"id":"56", "name": "ERRO NO SISTEMA","situacao": "ATIVO","idassunto":"5"},
+    {"id":"57", "name": "INFORMES","situacao": "ATIVO","idassunto":"5"},
+    {"id":"58", "name": "MANUTENÇÃO DE SISTEMA","situacao": "ATIVO","idassunto":"5"},
+    {"id":"59", "name": "SQAO","situacao": "ATIVO","idassunto":"5"},
+    {"id":"60", "name": "SUPERVISÃO / PROTOCOLOS","situacao": "ATIVO","idassunto":"5"},
+    {"id":"61", "name": "INOPERÂNCIA DO SISTEMA","situacao": "ATIVO","idassunto":"5"},
+    {"id":"62", "name": "SIC","situacao": "ATIVO","idassunto":"5"},
+    {"id":"63", "name": "SOU","situacao": "ATIVO","idassunto":"5"},
+    {"id":"64", "name": "TREINAMENTO","situacao": "ATIVO","idassunto":"5"},
+    {"id":"65", "name": "ABANDONADAS","situacao": "ATIVO","idassunto":"6"},
+    {"id":"66", "name": "ATENDIMENTO PRESENCIAL","situacao": "ATIVO","idassunto":"6"},
+    {"id":"67", "name": "ATENDIMENTO PROLONGADO","situacao": "ATIVO","idassunto":"6"},
+    {"id":"68", "name": "CALLBACK","situacao": "ATIVO","idassunto":"6"},
+    {"id":"69", "name": "CHAT","situacao": "ATIVO","idassunto":"6"}
   ]
+
 
 }

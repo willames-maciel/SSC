@@ -14,14 +14,14 @@
     @for (item of listAssunto; track $index) {
     <div class="item">
 
-      <div class="item-header"  (click)="toggleDropdown(item, $event)">
+      <div class="item-header"  (click)="toggleDropdown(item)">
         <span>{{ item.name }}</span>
 
-        <i class="fa-solid fa-chevron-down" [class.active]="isDropdownVisible"></i>
+        <i class="fa-solid fa-chevron-down" [class.active]="item.isDropdownVisible"></i>
       </div>
 
-      <!-- @if (isDropdownVisible) { -->
-      <div class="dropdown" id="test_{{item.id}}">
+      @if (item.isDropdownVisible) {
+      <div class="dropdown" id="test_{{item.id}}" *ngIf="item.isDropdownVisible">
 
         <table>
           <thead>
@@ -33,19 +33,31 @@
           </thead>
           <tbody>
 
-            @for (itemsubassunto of listSubAssunto; track $index) {
-
+            @for (item1 of listSubAssunto; track $index){
             <tr>
-              <td>{{itemsubassunto.name}}</td>
-              <td>{{itemsubassunto.situacao}}</td>
-              <td><i class="fa-solid fa-pen-to-square"></i></td>
+              <td>{{item1.name}}</td>
+              <td>{{item1.situacao}}</td>
+              <td class="btn-edit"><button id="form" (click)="onEditClick(item1)"><i class="fa-solid fa-pen-to-square"></i></button></td>
             </tr>
+            @if (selectedSubAssunto && selectedSubAssunto.id == subAssunto) {
+              <div>
+                <form (ngSubmit)="onSubmit()" class="form">
+                  <label for="name">Nome:</label>
+                  <input type="text" id="name"  name="name" required>
+                  <label for="situacao">Situação:</label>
+                <input type="text" id="situacao" name="situacao" required>
 
-          }
+                <button type="submit">Salvar</button>
+                <button type="button" (click)="cancelEdit()">Cancelar</button>
+                </form>
+              </div>
+            }
+         }
           </tbody>
         </table>
       </div>
-    <!-- } -->
+    }
+
     </div>
   }
   </div>

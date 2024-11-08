@@ -15,8 +15,12 @@ export class AssuntoService {
   getAssunto(): Observable<Assunto[]>{
     return this.Http.get<Assunto[]>(this.urlApi+'/assunto')
   }
+  getByIdSubAssunto(id: any):Observable<SubAssuntos[]>{
+    return this.Http.get<SubAssuntos[]>(this.urlApi+`/subassuntos?idassunto=${id}`)
+  }
+
   getSubAssunto():Observable<SubAssuntos[]>{
-    return this.Http.get<SubAssuntos[]>(this.urlApi+'/subassuntos/')
+    return this.Http.get<SubAssuntos[]>(this.urlApi+`/subassuntos`)
   }
 
 }
