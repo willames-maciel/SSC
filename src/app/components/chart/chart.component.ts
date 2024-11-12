@@ -1,54 +1,86 @@
 import { Component, ElementRef, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { catchError, of } from 'rxjs';
+import { ChartService } from '../../services/chart.service.service';
 
 Chart.register(...registerables);
+
+export interface Ocorrencia {
+  valor: number;
+  label: string;
+  data: number[];
+  backgroundColor?: string;
+  borderColor?: string;
+  borderWidth?: number;
+}
 
 @Component({
   selector: 'app-chart',
   standalone: true,
-  imports: [HttpClientModule],
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss'],
 })
+
 export class ChartComponent implements OnInit, OnDestroy {
   @ViewChild("meuCanvas", { static: true })
   elemento!: ElementRef;
   chart: any;
+  loading: boolean = true;
+  errorMessage: string | null = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private chartService: ChartService) { }
 
   ngOnInit(): void {
-    const url = 'http://localhost:3000/dados'; // Ajuste a URL conforme necessário
-
-    this.http.get(url).pipe(
+    this.chartService.getOcorrencias().pipe(
       catchError(error => {
         console.error('Erro ao buscar dados:', error);
-        return of({ meses: [], ocorrencias: [] }); // Retorna arrays vazios em caso de erro
+        this.loading = false;
+        this.errorMessage = 'Erro ao carregar dados. Tente novamente mais tarde.';
+        return of([]);
       })
-    ).subscribe((data: any) => {
-      if (!data || !data.meses || !data.ocorrencias) {
+    ).subscribe((ocorrencias: any[]) => {
+      this.loading = false;
+      console.log('Dados recebidos da API:', ocorrencias);
+
+      if (!ocorrencias || !Array.isArray(ocorrencias) || ocorrencias.length === 0) {
         console.error('Dados de meses ou ocorrências não estão disponíveis');
+        this.errorMessage = 'Dados de meses ou ocorrências não estão disponíveis.';
         return;
       }
 
-      console.log('Meses:', data.meses);
-      console.log('Ocorrências:', data.ocorrencias);
-      this.createChart(data.meses, data.ocorrencias);
+    const meses = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+
+      const ocorrenciasData = ocorrencias.map(ocorrencia => ({
+        label: ocorrencia.label,
+        data: ocorrencia.data,
+        backgroundColor: ocorrencia.backgroundColor,
+        borderColor: ocorrencia.borderColor,
+        borderWidth: ocorrencia.borderWidth,
+      }));
+
+      console.log('Meses:', meses);
+      console.log('Ocorrências:', ocorrenciasData);
+      this.createChart(meses, ocorrenciasData);
     });
   }
 
-  private createChart(mesesData: any, ocorrenciasData: any): void {
-    const meses = mesesData.map((m: any) => m.nome);
-    const datasets = ocorrenciasData;
+  private createChart(mesesData: string[], ocorrenciasData: any[]): void {
+    const meses = mesesData;
+    const datasets = ocorrenciasData.map((ocorrencia: any) => ({
+      label: ocorrencia.label,
+      data: ocorrencia.data,
+      backgroundColor: ocorrencia.backgroundColor,
+      borderColor: ocorrencia.borderColor,
+      borderWidth: ocorrencia.borderWidth,
+      fill: true,
+      tension: 0.2
+    }));
 
     const chartData = {
       labels: meses,
       datasets: datasets
     };
 
-    // Destruir o gráfico anterior, se existir
     if (this.chart) {
       this.chart.destroy();
     }
@@ -72,7 +104,7 @@ export class ChartComponent implements OnInit, OnDestroy {
           x: {
             title: {
               display: true,
-              text: 'Meses'
+              text: 'Ano de 2024'
             }
           },
           y: {

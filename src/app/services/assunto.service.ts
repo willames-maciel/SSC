@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Assunto, SubAssuntos } from '../pages/general-goal/general-goal.component';
+import { Assunto,SubAssuntos} from '../pages/general-goal/general-goal.component';
 
 @Injectable({
   providedIn: 'root'
@@ -24,3 +24,4 @@ export class AssuntoService {
   }
 
 }
+
