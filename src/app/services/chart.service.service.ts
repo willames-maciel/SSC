@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Ocorrencia } from '../components/chart/chart.component';
+import { Ausencia, Horas, Ocorrencia } from '../components/chart/chart.component';
+import { error } from 'node:console';
 
 @Injectable({
   providedIn: 'root'
@@ -21,4 +22,22 @@ export class ChartService {
       })
     );
   }
+
+  getAusencia(): Observable<Ausencia[]> {
+    return this.http.get<Ausencia[]>(`${this.urlApi}/ausencia/motivo`).pipe(
+      catchError(error =>{
+        console.error('Erro ao buscar ausência:', error);
+        return of([]);
+      })
+    );}
+
+    getHoras(): Observable<Horas[]> {
+      return this.http.get<Horas[]>(`${this.urlApi}/BancodeHoras`).pipe(
+        catchError(error =>{
+          console.error('Erro ao buscar ausência:', error);
+          return of([]);
+        })
+      );}
+
+
 }

@@ -13,6 +13,22 @@ export interface Ocorrencia {
   borderColor?: string;
   borderWidth?: number;
 }
+export interface Ausencia {
+  colaborador: string;
+  date: string;
+  motivo: string;
+  situacao: string;
+  observacao: string;
+  backgroundColor?: string;
+  borderColor?: string;
+  borderWidth?: number;
+}
+export interface Horas{
+  colabordor: string;
+  date: string;
+  situacao: string;
+  evento: string;
+}
 
 @Component({
   selector: 'app-chart',
@@ -22,9 +38,12 @@ export interface Ocorrencia {
 })
 
 export class ChartComponent implements OnInit, OnDestroy {
-  @ViewChild("meuCanvas", { static: true })
-  elemento!: ElementRef;
-  chart: any;
+  @ViewChild("meuCanvas", { static: true }) elemento!: ElementRef;
+  @ViewChild("donutCanvas", { static: true }) donutCanvas!: ElementRef;
+  @ViewChild("lineCanvas", { static: true }) lineCanvas!: ElementRef;
+  chart:  any;
+  donutChart: any;
+  lineChart: any;
   loading: boolean = true;
   errorMessage: string | null = null;
 
