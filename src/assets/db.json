@@ -1,4 +1,282 @@
 {
+"Usuario":[
+  [
+    {
+      "id": 1,
+      "name": "Valdezia Maria Leal Costa",
+      "email": "valdezia@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 2,
+      "name": "Francisco Willames Maciel Belem",
+      "email": "francisco.willames@gmail.com",
+      "password": "123456",
+      "cargo": "Tec. Teleprocessamento"
+    },
+    {
+      "id": 3,
+      "name": "Francisca Jéssica Moura",
+      "email": "francisca.jessica@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 4,
+      "name": "Francisca Soares da Silva",
+      "email": "francisca.soares@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 5,
+      "name": "Francisco Cleber Fernandes Silva",
+      "email": "francisco.cleber@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 6,
+      "name": "Jucelino Alves da Silva",
+      "email": "jucelino.alves@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 7,
+      "name": "Lívia Crisóstomo Tobias de Sousa",
+      "email": "livia.tobias@gmail.com",
+      "password": "123456",
+      "cargo": "Auxilia Técnico lV"
+    },
+    {
+      "id": 8,
+      "name": "Luiz Edevaldo Ferreira Oliveira",
+      "email": "luiz.edevaldo@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 9,
+      "name": "Luíza Lorena Bastos",
+      "email": "luiza.bastos@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 10,
+      "name": "Maervi Siny Cordeiro Karam Aguiar",
+      "email": "maervi.karam@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 11,
+      "name": "Maria Alverlânia Vieira Chaves",
+      "email": "maria.alverlania@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 12,
+      "name": "Maria Dayane Almeida da Silva",
+      "email": "maria.dayane@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 13,
+      "name": "Maria Lucilene Freitas Brasil",
+      "email": "maria.lucilene@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 14,
+      "name": "Maria Vanderline Freitas Almeida",
+      "email": "maria.vanderline@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 15,
+      "name": "Michelle Silva Carvalho",
+      "email": "michelle.silva@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 16,
+      "name": "Midian Lima da Silva",
+      "email": "midian.lima@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 17,
+      "name": "Paulo Pereira Souza Junior",
+      "email": "paulo.pereira@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 18,
+      "name": "Roberta Honorato de Abreu",
+      "email": "roberta.abreu@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 19,
+      "name": "Francisco Ivo",
+      "email": "francisco.ivo@gmail.com",
+      "password": " 123456",
+      "cargo": "Jardineiro"
+    },
+    {
+      "id": 20,
+      "name": "Francisca Sandra Monteiro",
+      "email": "francisca.sandra@gmail.com",
+      "password": "123456",
+      "cargo": "Zeladora"
+    },
+    {
+      "id": 21,
+      "name": "Domingos",
+      "email": "domingos@gmail.com",
+      "password": "123456",
+      "cargo": "Vigilante"
+    },
+    {
+      "id": 22,
+      "name": "Antonia Zeneide Nascimento de Araujo Alencar",
+      "email": "antonia.zeneide@gmail.com",
+      "password": "123456",
+      "cargo": "Coordenadora"
+    },
+    {
+      "id": 23,
+      "name": "Francisco Liberato Costa Filho",
+      "email": "francisco.liberato@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 24,
+      "name": "Paula Andreza Bezerra Lima",
+      "email": "paula.andreza@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 25,
+      "name": "Francisco Jose Lopes Nunes",
+      "email": "francisco.jose@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 26,
+      "name": "Maria Larissa Ricardo de Freitas",
+      "email": "maria.larissa@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 27,
+      "name": "Francisca Juliana Roseira Abreu",
+      "email": "francisca.juliana@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 28,
+      "name": "Marcilene Abreu de Freitas",
+      "email": "marcilene.abreu@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 29,
+      "name": "Maria Izabely Mota Rodrigues",
+      "email": "maria.izabely@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 30,
+      "name": "Maria Amanda Lima de Sousa",
+      "email": "maria.amanda@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 31,
+      "name": "Francisca Danívea Félix Sousa",
+      "email": "francisca.danivea@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 32,
+      "name": "Ana Jéssica Guerra Lima",
+      "email": "ana.jessica@gmail.com",
+      "password": "123456",
+      "cargo": "Auxilia Técnico lV"
+    },
+    {
+      "id": 33,
+      "name": "Lara Monteiro Tobias",
+      "email": "lara.tobias@gmail.com",
+      "password": "123456",
+      "cargo": "Assistente Técnico"
+    },
+    {
+      "id": 34,
+      "name": "Alani Beatriz Vieira Chaves",
+      "email": "alani.beatriz@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 35,
+      "name": "Hilária Araujo Belo",
+      "email": "hilaria.belo@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 36,
+      "name": "Larisse Maria Ferreira Moreira",
+      "email": "larisse.ferreira@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 37,
+      "name": "José Benevides Lôbo Neto",
+      "email": "jose.benevides@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 38,
+      "name": "Maria Lidiane Pinheiro Nobre",
+      "email": " maria.lidiane@gmail.com",
+      "password": "123456",
+      "cargo": "Telefonista"
+    },
+    {
+      "id": 39,
+      "name": "Paulo Victor",
+      "email": "paulo.victor@gmail.com",
+      "password": "123456",
+      "cargo": "Estagiario"
+    }
+  ]
+
+],
 "ocorrencias":[
   {
     "id": 1,
@@ -47,24 +325,48 @@
   }
 
   ],
+
   "ausencia":[
     {
       "id": 1,
       "colabordor":"Paulo Victor",
       "date":"02/05/2024",
+      "date-final": "12/05/2024",
       "motivo":"Ferias",
       "situacao": "Compensado",
-      "observacao": "Ferias de 1 dias"
+      "observacao": "Ferias de 10 dias",
+      "T.Dias": 10
     },
     {
       "id": 2,
-      "colabordor":"Francisco Jose",
+      "colabordor":"FRANCISCO JOSE LOPES NUNES",
       "date":"04/10/2024",
+      "date-final": "25/10/2024",
       "motivo":"Folga",
       "situacao": "Compensado",
-      "observacao": "Folga de 2 horas"
+      "observacao": "Folga de 21 dias",
+      "T.Dias": 21
+    },
+    {
+      "id": 3,
+      "colabordor":"Lívia Crisóstomo Tobias de Sousa",
+      "date":"04/09/2024",
+      "motivo":"Falta",
+      "situacao": "Compensada",
+      "observacao": "Filho doente"
+    },
+    {
+      "id": 4,
+      "motivo": "Atestado"
+    },
+    {
+      "id": 5,
+      "motivo": "Falta"
     }
   ],
+
+
+
   "BancodeHoras":[
     {
       "id": 1,

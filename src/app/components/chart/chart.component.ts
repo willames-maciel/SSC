@@ -5,6 +5,14 @@ import { ChartService } from '../../services/chart.service.service';
 
 Chart.register(...registerables);
 
+export interface Usuario{
+  id: number;
+  name:string;
+  email: string;
+  password: string;
+  cargo:string;
+}
+
 export interface Ocorrencia {
   valor: number;
   label: string;
@@ -13,6 +21,7 @@ export interface Ocorrencia {
   borderColor?: string;
   borderWidth?: number;
 }
+
 export interface Ausencia {
   colaborador: string;
   date: string;
@@ -23,7 +32,8 @@ export interface Ausencia {
   borderColor?: string;
   borderWidth?: number;
 }
-export interface Horas{
+
+export interface Horas {
   colabordor: string;
   date: string;
   situacao: string;
@@ -40,16 +50,18 @@ export interface Horas{
 export class ChartComponent implements OnInit, OnDestroy {
   @ViewChild("meuCanvas", { static: true }) elemento!: ElementRef;
   @ViewChild("donutCanvas", { static: true }) donutCanvas!: ElementRef;
-  @ViewChild("lineCanvas", { static: true }) lineCanvas!: ElementRef;
-  chart:  any;
+  @ViewChild("barCanvas", { static: true }) barCanvas!: ElementRef;
+  chart: any;
   donutChart: any;
-  lineChart: any;
+  barChart: any;
   loading: boolean = true;
   errorMessage: string | null = null;
+  ausencias: Ausencia[] = [];
 
   constructor(private chartService: ChartService) { }
 
   ngOnInit(): void {
+
     this.chartService.getOcorrencias().pipe(
       catchError(error => {
         console.error('Erro ao buscar dados:', error);
@@ -67,7 +79,7 @@ export class ChartComponent implements OnInit, OnDestroy {
         return;
       }
 
-    const meses = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+      const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
 
       const ocorrenciasData = ocorrencias.map(ocorrencia => ({
         label: ocorrencia.label,
@@ -80,6 +92,92 @@ export class ChartComponent implements OnInit, OnDestroy {
       console.log('Meses:', meses);
       console.log('Ocorrências:', ocorrenciasData);
       this.createChart(meses, ocorrenciasData);
+
+
+      this.chartService.getAusencia().pipe(
+        catchError(error => {
+          console.error('Erro ao buscar dados de ausências:', error);
+          this.loading = false;
+          this.errorMessage = 'Erro ao carregar dados de ausências. Tente novamente mais tarde.';
+          return of([]);
+        })
+      ).subscribe((ausencias: Ausencia[]) => {
+        this.loading = false;
+        this.ausencias = ausencias;
+        this.createAbsenceChart();
+      });
+    });
+  }
+
+  private createAbsenceChart(): void {
+    const contagemAusencias = {
+      falta: this.ausencias.filter(a => a.motivo === 'Falta').length,
+      atestado: this.ausencias.filter(a => a.motivo === 'Atestado').length,
+      folga: this.ausencias.filter(a => a.motivo === 'Folga').length,
+      ferias: this.ausencias.filter(a => a.motivo === 'Ferias').length,
+    };
+
+    const chartData = {
+      labels: ['Falta', 'Atestado', 'Folga', 'Férias'],
+      datasets: [{
+        label: 'Número de Ausências',
+        data: [
+          contagemAusencias.falta,
+          contagemAusencias.atestado,
+          contagemAusencias.folga,
+          contagemAusencias.ferias
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.4)',
+          'rgba(54, 162, 235, 0.4)',
+          'rgba(75, 192, 192, 0.4)',
+          'rgba(255, 206, 86, 0.4)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 206, 86, 1)'
+        ],
+        borderWidth: 1
+      }]
+    };
+
+    if (this.barChart) {
+      this.barChart.destroy();
+    }
+
+    this.barChart = new Chart(this.barCanvas.nativeElement, {
+      type: 'bar',
+      data: chartData,
+      options: {
+        responsive: true,
+        indexAxis: 'y',
+        plugins: {
+          legend: {
+            display: true,
+          },
+          title: {
+            display: true,
+            text: 'Gráfico de Ausências'
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Número de Ausências'
+            },
+            beginAtZero: true
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Motivos de Ausência'
+            }
+          }
+        }
+      }
     });
   }
 
@@ -103,6 +201,9 @@ export class ChartComponent implements OnInit, OnDestroy {
     if (this.chart) {
       this.chart.destroy();
     }
+
+    const totalDuration = 3000;
+    const delayBetweenPoints = totalDuration / meses.length;
 
     this.chart = new Chart(this.elemento.nativeElement, {
       type: 'line',
@@ -133,14 +234,32 @@ export class ChartComponent implements OnInit, OnDestroy {
             },
             beginAtZero: true
           }
+        },
+        animation: {
+          x: {
+            type: 'number',
+            easing: 'linear',
+            duration: delayBetweenPoints,
+            delay: (ctx: { index: number; }) => ctx.index * delayBetweenPoints
+          },
+          y: {
+            type: 'number',
+            easing: 'linear',
+            duration: delayBetweenPoints,
+            delay: (ctx: { index: number; }) => ctx.index * delayBetweenPoints
+          }
         }
       }
     });
-  }
+}
 
   ngOnDestroy(): void {
     if (this.chart) {
       this.chart.destroy();
     }
+    if (this.barChart) {
+      this.barChart.destroy
+    if (this.barChart) {
+      this.barChart.destroy();
   }
-}
+}}}
