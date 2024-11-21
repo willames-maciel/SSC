@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild, OnDestroy } from '@angular/co
 import { Chart, registerables } from 'chart.js';
 import { catchError, of } from 'rxjs';
 import { ChartService } from '../../services/chart.service.service';
+import { error } from 'node:console';
 
 Chart.register(...registerables);
 
@@ -51,14 +52,17 @@ export class ChartComponent implements OnInit, OnDestroy {
   @ViewChild("meuCanvas", { static: true }) elemento!: ElementRef;
   @ViewChild("donutCanvas", { static: true }) donutCanvas!: ElementRef;
   @ViewChild("barCanvas", { static: true }) barCanvas!: ElementRef;
+
   chart: any;
   donutChart: any;
   barChart: any;
   loading: boolean = true;
   errorMessage: string | null = null;
   ausencias: Ausencia[] = [];
+  usuarios: Usuario[] = [];
 
   constructor(private chartService: ChartService) { }
+
 
   ngOnInit(): void {
 
@@ -107,6 +111,10 @@ export class ChartComponent implements OnInit, OnDestroy {
         this.createAbsenceChart();
       });
     });
+
+   this.loadUsersAndAbsences();
+
+
   }
 
   private createAbsenceChart(): void {
@@ -253,13 +261,112 @@ export class ChartComponent implements OnInit, OnDestroy {
     });
 }
 
+loadUsersAndAbsences(): void {
+  this.chartService.getUsers().pipe(
+  catchError(error => {console.log("Erro ao buscar usuario: ", error);
+    this.loading = false;
+    this.errorMessage = 'Erro ao carregar usuario';
+    return of([]);
+  })
+  )
+  .subscribe((usuarios: Usuario[]) => {
+
+    this.loading = false;
+    this.usuarios = usuarios;
+
+    this.chartService.getAusencia().pipe(
+      catchError(error => {console.log("Erro ao buscar ausencia: ", error);
+        this.loading = false;
+        this.errorMessage = 'Erro ao carregar ausência';
+        return of([]);})
+    )
+    .subscribe((ausencias: Ausencia[])=> {
+
+      this.loading = false;
+      this.ausencias = ausencias;
+      this.createDonutChart();
+
+    });
+  });
+  }
+
+  private createDonutChart(): void {
+    const totalUsuarios = this.usuarios.length;
+    const totalFaltas = this.ausencias.length;
+    const totalPresencas = totalUsuarios - totalFaltas;
+    console.log("Teste", this.usuarios.length, this.ausencias.length);
+    console.log("Viewr");
+
+    const data = {
+        labels: ['Presenças', 'Faltas'],
+        datasets: [{
+            data: [totalPresencas, totalFaltas],
+            backgroundColor: ['rgba(38, 167, 56, 1)', 'rgba(248, 13, 56, 1)'],
+            hoverBackgroundColor: ['rgba(38, 167, 56, 0.8)', 'rgba(248, 13, 56, 0.8)']
+        }]
+    };
+
+    const config = {
+        type: 'doughnut',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Frequência de Presenças e Faltas'
+                }
+            },
+            animation: {
+                animateRotate: true,
+                animateScale: true,
+                onComplete: () => {
+                    const chartInstance = this.donutChart;
+                    const ctx = chartInstance.ctx;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.font = 'bold 16px Arial'; // Defina o estilo da fonte
+
+                    // Desenhar texto após a animação
+                    chartInstance.data.datasets.forEach((dataset: any, i: number) => {
+                        const meta = chartInstance.getDatasetMeta(i);
+                        meta.data.forEach((slice: any, index: number) => {
+                            const dataValue = dataset.data[index];
+                            const angle = (slice.startAngle + slice.endAngle) / 2;
+                            const x = slice.x + Math.cos(60) * 500; // Verificar a animação do donut num(5,34)
+                            const y = slice.y + Math.sin(30) * 30;
+                            ctx.fillText(dataValue, x, y);
+                            console.log(slice.startAngle,slice.endAngle,angle);
+
+                        });
+                    });
+                },
+                delay: (context: { index: number }) => context.index * 100
+            }
+        }
+    };
+
+    if (this.donutChart) {
+        this.donutChart.destroy();
+    }
+
+    this.donutChart = new Chart(this.donutCanvas.nativeElement, config);
+
+
+}
   ngOnDestroy(): void {
     if (this.chart) {
       this.chart.destroy();
     }
-    if (this.barChart) {
-      this.barChart.destroy
+    if (this.donutChart) {
+      this.donutChart.destroy();
+    }
     if (this.barChart) {
       this.barChart.destroy();
+    }
+
   }
-}}}
+ }
