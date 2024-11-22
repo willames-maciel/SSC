@@ -136,10 +136,10 @@ export class ChartComponent implements OnInit, OnDestroy {
           contagemAusencias.ferias
         ],
         backgroundColor: [
-          'rgba(255, 99, 132, 0.4)',
-          'rgba(54, 162, 235, 0.4)',
-          'rgba(75, 192, 192, 0.4)',
-          'rgba(255, 206, 86, 0.4)'
+          'rgba(255, 99, 132, 0.6)',
+          'rgba(54, 162, 235, 0.6)',
+          'rgba(75, 192, 192, 0.6)',
+          'rgba(255, 206, 86, 0.6)'
         ],
         borderColor: [
           'rgba(255, 99, 132, 1)',
@@ -328,9 +328,8 @@ loadUsersAndAbsences(): void {
                     const ctx = chartInstance.ctx;
                     ctx.textAlign = 'center';
                     ctx.textBaseline = 'middle';
-                    ctx.font = 'bold 16px Arial'; // Defina o estilo da fonte
+                    ctx.font = 'bold 16px Arial';
 
-                    // Desenhar texto após a animação
                     chartInstance.data.datasets.forEach((dataset: any, i: number) => {
                         const meta = chartInstance.getDatasetMeta(i);
                         meta.data.forEach((slice: any, index: number) => {

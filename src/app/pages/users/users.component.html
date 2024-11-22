@@ -1,1 +1,18 @@
-
+<div class="profile-container">
+  <div class="avatar-section">
+    <div class="avatar-wrapper" (mouseenter)="showTooltip()" (mouseleave)="hideTooltip()">
+      <img alt="User  Avatar"
+           src="https://avatars.githubusercontent.com/u/178849614?v=4"
+           class="avatar">
+      <span class="tooltip" *NgIf="tooltipVisible">Change your avatar</span>
+    </div>
+  </div>
+  <div class="profile-info">
+    <h1 class="username">Nome do Usuário</h1>
+    <p class="bio">Descrição ou informações adicionais sobre o usuário.</p>
+    <div class="additional-info">
+      <span class="followers">Followers: 100</span>
+      <span class="following">Following: 50</span>
+    </div>
+  </div>
+</div>

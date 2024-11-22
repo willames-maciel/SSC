@@ -1,0 +1,77 @@
+.profile-container {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  height: 800px;
+  margin: 20px auto;
+
+  .avatar-section {
+    margin-right: 20px;
+    position: relative;
+
+    .avatar-wrapper {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+
+      .avatar {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        border: 2px solid #e1e4e8;
+        transition: border-color 0.3s, background 0.3s;
+
+        &:hover {
+          background: linear-gradient(135deg, rgba(235, 78, 18, 1), rgba(38, 168, 56, 1));
+          border-color: transparent;
+        }
+      }
+
+      .tooltip {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #333;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 4px;
+        z-index: 1000;
+        margin-top: 5px;
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 0.2s;
+
+        &.visible {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .profile-info {
+    .username {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0;
+      color: #0366d6;
+    }
+
+    .bio {
+      font-size: 16px;
+      color: #586069;
+      margin: 5px 0;
+    }
+
+    .additional-info {
+      display: flex;
+      gap: 15px;
+      font-size: 14px;
+      color: #586069;
+    }
+  }
+}

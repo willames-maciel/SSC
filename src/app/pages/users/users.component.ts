@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { ChartComponent } from "../../components/chart/chart.component";
+
 
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [ChartComponent],
+  imports: [],
   template: '<app-chart></app-chart>',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
@@ -13,5 +13,13 @@ import { ChartComponent } from "../../components/chart/chart.component";
 
 })
 export class UsersComponent {
+  tooltipVisible: boolean = false;
+  showTooltip() {
+    this.tooltipVisible = true; // Mostrar tooltip
+  }
 
+  hideTooltip() {
+    this.tooltipVisible = false;
+
+}
 }

@@ -26,17 +26,17 @@ export class NavComponent {
   itens: Item[] = [
     { route: '/app', icon: 'fa-solid fa-house-chimney', label: 'Início' },
     { route: '/app/attendant-results', icon: 'fa-solid fa-headphones', label: 'Atendimentos' },
-    { route: '/app/complaints', icon: 'fa-solid fa-gear', label: 'Reclamação' },
-    { route: '/app/compliments', icon: 'fa-solid fa-gear', label: 'Elogios' },
+    { route: '/app/complaints', icon: 'fa-solid fa-thumbs-down', label: 'Reclamação' },
+    { route: '/app/compliments', icon: 'fa-solid fa-thumbs-up', label: 'Elogios' },
     { route: '/app/occurrences', icon: 'fa-solid fa-circle-exclamation', label: 'Ocorrência' },
     { route: '/app/absences', icon: 'fa-solid fa-user-slash', label: 'Ausências' },
     { route: '/app/bank-hours', icon: 'fa-solid fa-hourglass-half', label: 'Banco de Horas' },
     { route: '/app/delays', icon: 'fa-regular fa-clock', label: 'Atraso' },
     { route: '/app/reports', icon: 'fa-solid fa-chart-simple', label: 'Relatório e Estatística' },
     { route: '/app/general-goal', icon: 'fa-solid fa-gear', label: 'Configuração' },
-    { route: '/app/matters', icon: 'fa-solid fa-gear', label: 'Assuntos' },
-    { route: '/app/sub-matters', icon: 'fa-solid fa-gear', label: 'Subassuntos' },
-    { route: '/app/users', icon: 'fa-solid fa-gear', label: 'Usuários' }
+    { route: '/app/matters', icon: 'fa-regular fa-comment', label: 'Assuntos' },
+    { route: '/app/sub-matters', icon: 'fa-sharp fa-regular fa-comments', label: 'Subassuntos' },
+    { route: '/app/users', icon: 'fa-solid fa-user', label: 'Usuários' }
   ];
 
 

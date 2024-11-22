@@ -4,13 +4,13 @@
   justify-content: space-between;
   width:100%;
   min-height: 100%;
-  background-color: rgba(44, 64, 63, 1);
+
 
 
   .info-page h1{
     font-size: 28px;
     margin-left: 15px;
-    color: #ffffff;
+    color: #000000;
   }
   .info-user{
     padding: 0 20px;
@@ -25,10 +25,10 @@
       border-radius: 50%;
     }
     .informacoes-perfil p:nth-child(1){
-      color: rgba(151, 158, 176, 1);
+      color: rgb(84, 88, 99);
   }
   .informacoes-perfil p:nth-child(2){
-    color: rgba(191, 193, 198, 1);
+    color: rgb(103, 104, 107);
 }
 
 

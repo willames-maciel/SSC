@@ -1,6 +1,7 @@
 header {
   grid-area: header;
-  background-color: rgba(44, 64, 63, 1);
+  background-color:#D2B48C;
+
 }
 main {
 
@@ -11,7 +12,8 @@ main {
 }
 aside {
   grid-area: sidebar;
-  background-color: rgb(204, 196, 178);
+  background-color: rgba(44, 64, 63, 0.8);
+
 }
 footer {
   grid-area: footer;
