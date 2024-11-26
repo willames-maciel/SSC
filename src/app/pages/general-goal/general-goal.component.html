@@ -15,13 +15,13 @@
     <div class="item">
 
       <div class="item-header"  (click)="toggleDropdown(item)">
-        <span>{{ item.name }}</span>
+        <span>{{ item.txt_assunto }}</span>
 
         <i class="fa-solid fa-chevron-down" [class.active]="item.isDropdownVisible"></i>
       </div>
 
       @if (item.isDropdownVisible) {
-      <div class="dropdown" id="test_{{item.id}}" *ngIf="item.isDropdownVisible">
+      <div class="dropdown" id="test_{{item.id_assunto}}" *ngIf="item.isDropdownVisible">
 
         <table>
           <thead>

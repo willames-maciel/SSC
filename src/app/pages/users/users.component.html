@@ -4,15 +4,37 @@
       <img alt="User  Avatar"
            src="https://avatars.githubusercontent.com/u/178849614?v=4"
            class="avatar">
-      <span class="tooltip" *NgIf="tooltipVisible">Change your avatar</span>
+      <span class="tooltip" *ngIf="tooltipVisible">Change your avatar</span>
     </div>
   </div>
+
   <div class="profile-info">
-    <h1 class="username">Nome do Usuário</h1>
-    <p class="bio">Descrição ou informações adicionais sobre o usuário.</p>
-    <div class="additional-info">
-      <span class="followers">Followers: 100</span>
-      <span class="following">Following: 50</span>
+    <h1 class="username">Paulo Victor da Silva Sousa</h1>
+    <p class="bio">Estagiário mais alto.</p>
+
+    <div class="user-info">
+      <span class="followers">Cargo:<P>Estagiário</P></span>
+      <span class="following">Função:<P>Desenvolvedor</P></span>
     </div>
   </div>
+
+  <div class="verific">
+    <form>
+      <div class="input-field">
+          <label for="email">
+              <span class="email-part">paulo.victor.s.</span>
+              <span class="email-hidden">sousa01&#64;gmail.com</span>  <!-- &#64;  é  @ -->
+              <i class="fa-regular fa-envelope" (click)="toggleEmailVisibility()"></i>
+          </label>
+      </div>
+
+      <div class="input-field">
+          <label for="password">
+              <span class="password-part">{{ isPasswordVisible ? password : '●●●●●●' }}</span>
+              <i class="fas" [ngClass]="isPasswordVisible ? 'fa-solid fa-lock-open' : 'fa-solid fa-lock' " (click)="togglePasswordVisibility()"></i>
+          </label>
+      </div>
+  </form>
+</div>
+
 </div>

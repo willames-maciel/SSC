@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 export interface Assunto {
-  id: string;
-  name: string;
-  situacao: string;
+  id_assunto: string;
+  txt_assunto: string;
+  status_assunto: string;
   isDropdownVisible: boolean;
   icon: string;
 }
@@ -67,7 +67,7 @@ export class GeneralGoalComponent {
 
     if (item.isDropdownVisible) {
 
-      this.assuntoService.getByIdSubAssunto(item.id).subscribe({
+      this.assuntoService.getByIdSubAssunto(item.id_assunto).subscribe({
         next: (data: SubAssuntos[]) => {
           console.log("Data", data);
           this.listSubAssunto = data;

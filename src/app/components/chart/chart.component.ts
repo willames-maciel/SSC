@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild, OnDestroy } from '@angular/co
 import { Chart, registerables } from 'chart.js';
 import { catchError, of } from 'rxjs';
 import { ChartService } from '../../services/chart.service.service';
-import { error } from 'node:console';
+
 
 Chart.register(...registerables);
 
@@ -41,6 +41,7 @@ export interface Horas {
   evento: string;
 }
 
+
 @Component({
   selector: 'app-chart',
   standalone: true,
@@ -61,8 +62,7 @@ export class ChartComponent implements OnInit, OnDestroy {
   ausencias: Ausencia[] = [];
   usuarios: Usuario[] = [];
 
-  constructor(private chartService: ChartService) { }
-
+  constructor(private chartService: ChartService) {}
 
   ngOnInit(): void {
 
@@ -75,10 +75,10 @@ export class ChartComponent implements OnInit, OnDestroy {
       })
     ).subscribe((ocorrencias: any[]) => {
       this.loading = false;
-      console.log('Dados recebidos da API:', ocorrencias);
+
 
       if (!ocorrencias || !Array.isArray(ocorrencias) || ocorrencias.length === 0) {
-        console.error('Dados de meses ou ocorrências não estão disponíveis');
+
         this.errorMessage = 'Dados de meses ou ocorrências não estão disponíveis.';
         return;
       }
@@ -93,8 +93,7 @@ export class ChartComponent implements OnInit, OnDestroy {
         borderWidth: ocorrencia.borderWidth,
       }));
 
-      console.log('Meses:', meses);
-      console.log('Ocorrências:', ocorrenciasData);
+
       this.createChart(meses, ocorrenciasData);
 
 
@@ -112,7 +111,7 @@ export class ChartComponent implements OnInit, OnDestroy {
       });
     });
 
-   this.loadUsersAndAbsences();
+    this.loadUsersAndAbsences();
 
 
   }
@@ -122,7 +121,7 @@ export class ChartComponent implements OnInit, OnDestroy {
       falta: this.ausencias.filter(a => a.motivo === 'Falta').length,
       atestado: this.ausencias.filter(a => a.motivo === 'Atestado').length,
       folga: this.ausencias.filter(a => a.motivo === 'Folga').length,
-      ferias: this.ausencias.filter(a => a.motivo === 'Ferias').length,
+      ferias: this.ausencias.filter(a => a.motivo === 'Ferias').length
     };
 
     const chartData = {
@@ -160,6 +159,7 @@ export class ChartComponent implements OnInit, OnDestroy {
       data: chartData,
       options: {
         responsive: true,
+        maintainAspectRatio: false,
         indexAxis: 'y',
         plugins: {
           legend: {
@@ -210,8 +210,7 @@ export class ChartComponent implements OnInit, OnDestroy {
       this.chart.destroy();
     }
 
-    const totalDuration = 3000;
-    const delayBetweenPoints = totalDuration / meses.length;
+
 
     this.chart = new Chart(this.elemento.nativeElement, {
       type: 'line',
@@ -241,121 +240,85 @@ export class ChartComponent implements OnInit, OnDestroy {
               text: 'Valores'
             },
             beginAtZero: true
-          }
-        },
-        animation: {
-          x: {
-            type: 'number',
-            easing: 'linear',
-            duration: delayBetweenPoints,
-            delay: (ctx: { index: number; }) => ctx.index * delayBetweenPoints
-          },
-          y: {
-            type: 'number',
-            easing: 'linear',
-            duration: delayBetweenPoints,
-            delay: (ctx: { index: number; }) => ctx.index * delayBetweenPoints
+
           }
         }
       }
     });
-}
+  }
 
-loadUsersAndAbsences(): void {
-  this.chartService.getUsers().pipe(
-  catchError(error => {console.log("Erro ao buscar usuario: ", error);
-    this.loading = false;
-    this.errorMessage = 'Erro ao carregar usuario';
-    return of([]);
-  })
-  )
-  .subscribe((usuarios: Usuario[]) => {
-
-    this.loading = false;
-    this.usuarios = usuarios;
-
-    this.chartService.getAusencia().pipe(
-      catchError(error => {console.log("Erro ao buscar ausencia: ", error);
+  loadUsersAndAbsences(): void {
+    this.chartService.getUsers().pipe(
+      catchError(error => {
+        console.log("Erro ao buscar usuario: ", error);
         this.loading = false;
-        this.errorMessage = 'Erro ao carregar ausência';
-        return of([]);})
+        this.errorMessage = 'Erro ao carregar usuario';
+        return of([]);
+      })
     )
-    .subscribe((ausencias: Ausencia[])=> {
+    .subscribe((usuarios: Usuario[]) => {
 
       this.loading = false;
-      this.ausencias = ausencias;
-      this.createDonutChart();
+      this.usuarios = usuarios;
 
+      this.chartService.getAusencia().pipe(
+        catchError(error => {
+          console.log("Erro ao buscar ausencia: ", error);
+          this.loading = false;
+          this.errorMessage = 'Erro ao carregar ausência';
+          return of([]);
+        })
+      )
+      .subscribe((ausencias: Ausencia[]) => {
+        this.loading = false;
+        this.ausencias = ausencias;
+        this.createDonutChart();
+
+      });
     });
-  });
   }
 
   private createDonutChart(): void {
     const totalUsuarios = this.usuarios.length;
     const totalFaltas = this.ausencias.length;
     const totalPresencas = totalUsuarios - totalFaltas;
-    console.log("Teste", this.usuarios.length, this.ausencias.length);
-    console.log("Viewr");
+
 
     const data = {
-        labels: ['Presenças', 'Faltas'],
-        datasets: [{
-            data: [totalPresencas, totalFaltas],
-            backgroundColor: ['rgba(38, 167, 56, 1)', 'rgba(248, 13, 56, 1)'],
-            hoverBackgroundColor: ['rgba(38, 167, 56, 0.8)', 'rgba(248, 13, 56, 0.8)']
-        }]
+      labels: ['Presenças', 'Faltas'],
+      datasets: [{
+        data: [totalPresencas, totalFaltas],
+        backgroundColor: ['rgba(38, 167, 56, 1)', 'rgba(248, 13, 56, 1)'],
+        hoverBackgroundColor: ['rgba(38, 167, 56, 0.8)', 'rgba(248, 13, 56, 0.8)']
+      }]
     };
 
     const config = {
-        type: 'doughnut',
-        data: data,
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-                title: {
-                    display: true,
-                    text: 'Frequência de Presenças e Faltas'
-                }
-            },
-            animation: {
-                animateRotate: true,
-                animateScale: true,
-                onComplete: () => {
-                    const chartInstance = this.donutChart;
-                    const ctx = chartInstance.ctx;
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'middle';
-                    ctx.font = 'bold 16px Arial';
-
-                    chartInstance.data.datasets.forEach((dataset: any, i: number) => {
-                        const meta = chartInstance.getDatasetMeta(i);
-                        meta.data.forEach((slice: any, index: number) => {
-                            const dataValue = dataset.data[index];
-                            const angle = (slice.startAngle + slice.endAngle) / 2;
-                            const x = slice.x + Math.cos(60) * 500; // Verificar a animação do donut num(5,34)
-                            const y = slice.y + Math.sin(30) * 30;
-                            ctx.fillText(dataValue, x, y);
-                            console.log(slice.startAngle,slice.endAngle,angle);
-
-                        });
-                    });
-                },
-                delay: (context: { index: number }) => context.index * 100
-            }
-        }
+      type: 'doughnut',
+      data: data,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Frequência de Presenças e Faltas'
+          }
+        },
+      }
     };
 
     if (this.donutChart) {
-        this.donutChart.destroy();
+      this.donutChart.destroy();
     }
 
     this.donutChart = new Chart(this.donutCanvas.nativeElement, config);
 
 
-}
+  }
   ngOnDestroy(): void {
     if (this.chart) {
       this.chart.destroy();
@@ -368,4 +331,4 @@ loadUsersAndAbsences(): void {
     }
 
   }
- }
+}
