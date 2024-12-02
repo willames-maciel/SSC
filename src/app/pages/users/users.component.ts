@@ -1,39 +1,43 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
-
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CommonModule],
-  template: '<app-chart></app-chart>',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss'],
-
-
+  styleUrls: ['./users.component.css'],
+  imports: [CommonModule]
 })
 export class UsersComponent {
-  tooltipVisible: boolean = false;
-  showTooltip() {
-    this.tooltipVisible = true;
-  }
-
-  hideTooltip() {
-    this.tooltipVisible = false;
-
-}
-password: string = '123456';
+  email: string = '';
+  password: string = '';
   isPasswordVisible: boolean = false;
+  isEmailVisible: boolean = false;
+  tooltipVisible: boolean = false;
 
   togglePasswordVisibility() {
     this.isPasswordVisible = !this.isPasswordVisible;
   }
 
+  showTooltip() {
+    this.tooltipVisible = true;
+  }
+
   toggleEmailVisibility() {
-    const emailHidden = document.querySelector('.email-hidden') as HTMLElement;
-    if (emailHidden) {
-        emailHidden.style.display = emailHidden.style.display === 'none' ? 'inline' : 'none';
-    }
-}
+    this.isEmailVisible = !this.isEmailVisible;
+  }
+
+  hideTooltip() {
+    this.tooltipVisible = false;
+  }
+
+  onEmailInput(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.email = target.value;
+  }
+
+  onPasswordInput(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.password = target.value;
+  }
 }

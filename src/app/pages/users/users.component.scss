@@ -68,7 +68,7 @@
       margin: 5px 0;
     }
 
-    .user-info{
+    .user-info {
       background-color: rgba(0, 255, 255, 0);
       margin-top: 25px;
       display: flex;
@@ -76,20 +76,24 @@
       font-size: 14px;
       color: #586069;
     }
-    .verific {
-      margin-top: 25px; // Adiciona margem para separar do restante
-      form {
-        background-color: chocolate; // Cor de fundo do formulário
-        padding: 20px; // Espaçamento interno
-        border-radius: 8px; // Arredonda os cantos do formulário
-      }
+  }
 
-      .input-field {
-        background-color: #c02626; // Cor de fundo dos campos de entrada
-        padding: 10px; // Espaçamento interno dos campos
-        border-radius: 4px; // Arredonda os cantos dos campos
-        margin-bottom: 15px; // Espaçamento entre os campos
-        color: white; // Cor do texto dos campos
+  .verific {
+    margin-top: 45px;
+    margin-left: 20px;
+    form {
+      padding: 3px;
+    }
+
+    .input-field {
+      background-color: #000000a6;
+      padding: 5px;
+      border-radius: 4px; // Arredonda os cantos dos campos
+      margin-bottom: 10px; // Espaçamento entre os campos
+      color: white;
+
+      i {
+        margin-left: 5px;
       }
     }
   }

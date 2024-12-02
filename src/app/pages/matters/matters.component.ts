@@ -1,11 +1,12 @@
+import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { AssuntoService } from './../../services/assunto.service';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Assunto } from '../general-goal/general-goal.component';
+import { AssuntoService } from '../../services/assunto.service';
 
-export interface assuntos extends Assunto {
-  id_assunto: string;
+export interface Assuntos extends Assunto {
+  id_assunto: number;
   txt_assunto: string;
   status_assunto: string;
 }
@@ -14,13 +15,16 @@ export interface assuntos extends Assunto {
   selector: 'app-matters',
   standalone: true,
   templateUrl: './matters.component.html',
-  styleUrls: ['./matters.component.scss']
+  styleUrls: ['./matters.component.scss'],
+  imports: [FormsModule]
 })
 export class MattersComponent implements OnInit {
-  assuntos:assuntos[] = [];
+  assuntos: Assuntos[] = [];
   loading: boolean = true;
   errorMessage: string | null = null;
-  Assunto: Assunto[] | undefined;
+  assunto: string = '';
+  situacao: string = '';
+
 
   constructor(private assuntoService: AssuntoService) {}
 
@@ -28,8 +32,8 @@ export class MattersComponent implements OnInit {
     this.fetchAssuntos();
   }
 
-fetchAssuntos(): void {
-  this.assuntoService.getAssunto().pipe(
+  fetchAssuntos(): void {
+  this.assuntoService.getAssuntos().pipe(
     catchError((error) => {
       console.error('Erro ao buscar dados: ', error);
       this.errorMessage = 'Erro ao carregar dados';
@@ -40,15 +44,24 @@ fetchAssuntos(): void {
     console.log('Dados recebidos no componente:', data);
     this.assuntos = data.map(item => ({
       ...item,
-      id_assunto: item.id_assunto || '',
+      id_assunto: typeof item.id_assunto === 'number' ? item.id_assunto : 0,
       txt_assunto: item.txt_assunto || '',
       status_assunto: item.status_assunto || ''
     }));
     this.loading = false;
   });
 }
-Verificar(){
-  console.log('Clicado',this.assuntos);
 
+  Verificar(event: Event): void {
+    console.log('Clicado');
+  }
+
+  Apagar(){
+    this.assunto = '';
+    this.situacao = '';
+}
+
+Criar(){
+  console.log('Criar');
 }
 }

@@ -73,7 +73,7 @@ h2{
 .field-checkbox{
   width: min-content;
   margin-top: -95px;
-  margin-left: 320px;
+  margin-left: 310px;
   display: flex;
 
   align-items: start;
@@ -86,10 +86,12 @@ h2{
   }
 
   .field-chek{
+    width: 260px;
+
     display: flex;
     gap: 3px;
     margin-top: 40px;
-    margin-left: -130px;
+    margin-left: -120px;
 
 
     & div:nth-child(1){
@@ -119,15 +121,17 @@ h2{
 .btn{
   height: 40px;
   width: 100px;
-  margin-inline: 8px;
-  margin-top: 35px;
+  margin-inline: 10px;
+  margin-top: -55px;
+  margin-left: 10px;
+
 
 
   }
   .btn:nth-of-type(1) {
     background-color: rgba(0, 122, 255, 1);
     color: white;
-    margin-left: -35px;
+    margin-left: 5px;
   }
 
   .btn:nth-of-type(2) {
@@ -139,7 +143,7 @@ h2{
     width: 150px;
     background-color: rgba(68, 178, 110, 1);
     color: white;
-    margin-top: 35px;
+    margin-top: -55px;
     margin-left: 40px;
     margin-right: 20px;
   }

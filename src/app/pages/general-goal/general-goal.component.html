@@ -11,18 +11,13 @@
   </div>
 
   <div class="general-goal-container">
-    @for (item of listAssunto; track $index) {
-    <div class="item">
-
-      <div class="item-header"  (click)="toggleDropdown(item)">
+    <div *ngFor="let item of listAssunto; let i = index" class="item">
+      <div class="item-header" (click)="toggleDropdown(item)">
         <span>{{ item.txt_assunto }}</span>
-
         <i class="fa-solid fa-chevron-down" [class.active]="item.isDropdownVisible"></i>
       </div>
 
-      @if (item.isDropdownVisible) {
-      <div class="dropdown" id="test_{{item.id_assunto}}" *ngIf="item.isDropdownVisible">
-
+      <div class="dropdown" *ngIf="item.isDropdownVisible">
         <table>
           <thead>
             <tr>
@@ -32,33 +27,35 @@
             </tr>
           </thead>
           <tbody>
-
-            @for (item1 of listSubAssunto; track $index){
-            <tr>
-              <td>{{item1.name}}</td>
-              <td>{{item1.situacao}}</td>
-              <td class="btn-edit"><button id="form" (click)="onEditClick(item1)"><i class="fa-solid fa-pen-to-square"></i></button></td>
-            </tr>
-            @if (selectedSubAssunto && selectedSubAssunto.id == subAssunto) {
-              <div>
-                <form (ngSubmit)="onSubmit()" class="form">
-                  <label for="name">Nome:</label>
-                  <input type="text" id="name"  name="name" required>
-                  <label for="situacao">Situação:</label>
-                <input type="text" id="situacao" name="situacao" required>
-
-                <button type="submit">Salvar</button>
-                <button type="button" (click)="cancelEdit()">Cancelar</button>
-                </form>
-              </div>
-            }
-         }
+            @for (sub of listSubAssunto; track sub.id_sub_assunto; let i = $index) {
+              <tr>
+                <td>{{ listSubAssunto[i].txtSubAssunto }}</td>
+                <td>{{ sub.status_sub_assunto }}</td>
+                <td class="btn-edit">
+                  <button (click)="onEditClick(sub)">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </button>
+                </td>
+              </tr>
+            }@empty {
+              <span>Empty list of users</span>
+              }
           </tbody>
         </table>
-      </div>
-    }
 
+        <div *ngIf="selectedSubAssunto">
+          <form (ngSubmit)="onSubmit()" class="form">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" [(ngModel)]="selectedSubAssunto.txtSubAssunto" required>
+
+            <label for="situacao">Situação:</label>
+            <input type="text" id="situacao" name="situacao" [(ngModel)]="selectedSubAssunto.status_sub_assunto" required>
+
+            <button type="submit">Salvar</button>
+            <button type="button" (click)="cancelEdit()">Cancelar</button>
+          </form>
+        </div>
+      </div>
     </div>
-  }
   </div>
 </div>

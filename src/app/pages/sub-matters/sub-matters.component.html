@@ -3,32 +3,38 @@
   <hr>
 </div>
 
-
 <div class="form">
 
   <div class="field-area-1">
 
-
       <div class="field-2">
+
           <label class="title-text">Subassuntos:</label><br>
-          <input type="text" placeholder="Insira o nome Assunto">
+          <input type="text" [(ngModel)]="assunto" placeholder="Insira o nome do Subassuntos">
+      </div>
+  </div>
+  <hr class="line">
+  <div class="field-area-2">
+      <div class="field-checkbox">
+          <h2>Situação:</h2>
+          <div class="field-chek">
+              <div>
+                  <input type="radio" name="tipo" id="ativo" [(ngModel)]="situacao" value="ativo">
+                  <label class="text" for="ativo">Ativo</label>
+              </div>
+              <div>
+                  <input type="radio" name="tipo" id="desativo" [(ngModel)]="situacao" value="desativo">
+                  <label class="text" for="desativo">Desativo</label>
+              </div>
+          </div>
       </div>
 
-
-
-  </div>
-      <hr class="line">
-  <div class="field-area-2">
-
-    <div class="field-checkbox">
-      <h2>Situação:</h2>
-      <div class="field-chek">
-    <div><input type="radio"><label class="text">Ativo</label></div>
-    <div><input type="radio"><label class="text">Inativo</label></div>
-    </div>
-
-      <button class="btn"><i class="fa-solid fa-magnifying-glass"></i> Pesquisar</button>
-      <button class="btn"><i class="fa-regular fa-circle-xmark"></i> Cancelar</button>
-      <button class="btn-1">Nova Assunto</button>
+      <button class="btn" (click)="Verificar($event)">
+          <i class="fa-solid fa-magnifying-glass"></i> Pesquisar
+      </button>
+      <button class="btn" (click)="Apagar()">
+          <i class="fa-regular fa-circle-xmark"></i> Cancelar
+      </button>
+      <button class="btn-1" (click)="Criar()">Nova Assunto</button>
   </div>
 </div>
