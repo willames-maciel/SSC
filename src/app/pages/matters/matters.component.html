@@ -30,12 +30,17 @@
             </div>
         </div>
 
-        <button class="btn" (click)="Verificar($event)">
+        <button class="btn" (click)="Verificar($event); loadData()">
             <i class="fa-solid fa-magnifying-glass"></i> Pesquisar
         </button>
-        <button class="btn" (click)="Apagar()">
+        <button class="btn" (click)="Apagar() ">
             <i class="fa-regular fa-circle-xmark"></i> Cancelar
         </button>
         <button class="btn-1" (click)="Criar()">Nova Assunto</button>
+
     </div>
+<div class="load">
+   <app-data-loader></app-data-loader>
+  </div>
 </div>
+

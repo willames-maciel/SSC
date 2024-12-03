@@ -4,6 +4,8 @@ import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Assunto } from '../general-goal/general-goal.component';
 import { AssuntoService } from '../../services/assunto.service';
+import { DataLoaderComponent } from "../../components/data-loader/data-loader.component";
+
 
 export interface Assuntos extends Assunto {
   id_assunto: number;
@@ -16,7 +18,7 @@ export interface Assuntos extends Assunto {
   standalone: true,
   templateUrl: './matters.component.html',
   styleUrls: ['./matters.component.scss'],
-  imports: [FormsModule]
+  imports: [FormsModule, DataLoaderComponent]
 })
 export class MattersComponent implements OnInit {
   assuntos: Assuntos[] = [];
@@ -24,6 +26,8 @@ export class MattersComponent implements OnInit {
   errorMessage: string | null = null;
   assunto: string = '';
   situacao: string = '';
+  data: any | null = null;
+
 
 
   constructor(private assuntoService: AssuntoService) {}
@@ -52,16 +56,42 @@ export class MattersComponent implements OnInit {
   });
 }
 
-  Verificar(event: Event): void {
-    console.log('Clicado');
-  }
+Verificar(event: Event): void {
 
-  Apagar(){
-    this.assunto = '';
-    this.situacao = '';
+  this.loading = true;
+  console.log('Verificando...');
+  this.fetchAssuntos();
 }
 
-Criar(){
+Apagar(): void {
+
+  this.assunto = '';
+  this.situacao = '';
+  this.loading = true;
+  this.fetchAssuntos();
+}
+
+Criar(): void {
+
   console.log('Criar');
+  this.loading = true;
+  this.fetchAssuntos();
+}
+
+
+loadData() {
+  this.loading = true;
+  this.data = null;
+  this.errorMessage = null;
+
+  this.assuntoService.getAssuntos().subscribe({
+    next: (result) => {
+      this.data = result;
+      this.loading = false;
+    },
+    error: () => {
+      this.errorMessage = 'Erro ao carregar dados';
+    }
+  });
 }
 }
